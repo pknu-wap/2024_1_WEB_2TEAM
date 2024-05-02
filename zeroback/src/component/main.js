@@ -1,20 +1,26 @@
 import React from "react";
-import {Routes, Route, Link} from "react-router-dom"
+import {Routes, Route, Link, useNavigate} from "react-router-dom"
 import Board from './board';
 import './main.css'
 
-function Main() {
+function Main () {
+    const navigate = useNavigate();
+
+    const goToIndex = () => {
+        navigate("/index");
+    }
+
+    const goToBoard = () => {
+        navigate("/board");
+    }
+
     return (
         <div className="links">
-            <Link to='/' className="link">Index</Link>
-            <Link to='/' className="link">News</Link>
-            <Link to='/board' className="link">Community</Link>
-            <Link to='/' className="link">MyPage</Link>
-            <Routes>
-                <Route path="/board" element={<Board/>} />
-            </Routes>
+            <Link to='/board' className="link">지수</Link>
+            <index onClick= {goToIndex} className="link">Index</index>
+            <board onClick={goToBoard} className="link">Community</board>
         </div>
-    )
+    );
 }
 
 export default Main;

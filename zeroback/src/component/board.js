@@ -20,7 +20,7 @@ function Board() {
                     <div id="buttons">
                         <button id="write">글쓰기</button>
                         <button id="scrap_post_manage">스크랩 게시글 관리</button>
-                        <button id="search"></button>
+                        <button id="search_button"><img id="search" src={process.env.PUBLIC_URL + '/search.png'}/></button>
                     </div>
                     <div class="SubBoards">
                         <p>스크랩 글</p>

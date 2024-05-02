@@ -67,3 +67,12 @@ main {
   width: 1410px;
   border: 1px solid #000000;
 }
+
+#page {
+  left: 0;
+  right: 0;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 94%;
+}
