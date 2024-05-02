@@ -1,9 +1,9 @@
 import React from "react";
-import {Routes, Route, Link} from "react-router-dom"
-import Main from './component/main'
+import {Routes, Route, Router} from "react-router-dom";
+import Main from './component/main';
 import Board from './component/board';
-import TradingViewWidget from './component'
-import './App.css'
+import Index from './component/index';
+import './App.css';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main/>} />
         <Route path="/board" element={<Board/>} />
+        <Route path="/index" element={<Index/>} />
       </Routes>
     </div>
   );
