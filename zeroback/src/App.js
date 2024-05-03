@@ -1,9 +1,10 @@
 import React from "react";
-import {Routes, Route, Link} from "react-router-dom"
-import Main from './component/main'
+import {Routes, Route} from "react-router-dom";
+import Main from './component/main';
 import Board from './component/board';
-import TradingViewWidget from './component'
-import './App.css'
+import Index from './component/index';
+import Sign from "./component/sign";
+import './App.css';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main/>} />
         <Route path="/board" element={<Board/>} />
+        <Route path="/index" element={<Index/>} />
+        <Route path="/sign_in" element={<Sign/>} />
       </Routes>
     </div>
   );
