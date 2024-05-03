@@ -22,18 +22,17 @@ public class CommentController {
     private final CommentService commentService;
     private final BoardService boardService;
 
-    @PostMapping("/{boardId}/comments") // "/{boardId}/comments" 경로로 POST 요청이 들어왔을 때 해당 메서드가 실행됩니다.
-    public String addComment(@PathVariable Long boardId, // 게시글 ID를 받습니다.
-                             @ModelAttribute CommentCreateRequest req, // 댓글 생성 요청 정보를 받습니다.
-                             Authentication auth, // 사용자 인증 정보를 받습니다.
-                             Model model) { // 모델 객체를 받습니다. 모델 객체는 뷰로 데이터를 전달하는 데 사용됩니다.
-        // 댓글 작성 서비스를 호출하여 댓글을 추가합니다.
+    @PostMapping("/{boardId}/comments") // "/{boardId}/comments" POST
+    public String addComment(@PathVariable Long boardId, // 게시글 ID
+                             @ModelAttribute CommentCreateRequest req, // 댓글 생성 요청 정보
+                             Authentication auth, // 사용자 인증 정보
+                             Model model) {
+
         commentService.writeComment(boardId, req, auth.getName());
 
-        // 댓글 추가 완료 메시지와 다음에 이동할 경로를 모델에 추가합니다.
         model.addAttribute("message", "댓글이 추가되었습니다.");
-        model.addAttribute("nextUrl", "/boards/" + boardId); // 해당 게시글 상세 페이지로 이동합니다.
-        return "printMessage"; // 결과를 출력할 printMessage 뷰를 반환합니다.
+        model.addAttribute("nextUrl", "/boards/" + boardId); // 
+        return "printMessage";
     }
 
     //댓글 수정
