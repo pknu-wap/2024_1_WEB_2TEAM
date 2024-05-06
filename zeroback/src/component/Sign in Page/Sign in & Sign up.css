@@ -8,8 +8,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("pulse-trace-glowing-computer-monitor-generated-by-ai.jpg") no-repeat center;
-    background-size: cover;
 }
 body::before {
     content: "";
