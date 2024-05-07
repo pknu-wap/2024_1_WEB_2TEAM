@@ -1,0 +1,6 @@
+.logo-img{                  /*클래스를 불러올 때는 클래스 이름 앞에 .을 붙여서 가져온다.*/
+    font-size: 90px;
+}
+form{
+    font-size: 40px;
+}
