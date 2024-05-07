@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+<head>                                                      <!--head 내의 내용은 문서의 속성을 정의해주며, 페이지에는 보이지 않는 내용이다.-->
     <title>로그인 페이지</title>                             <!--head 내의 title 태그에 페이지 창의 이름을 입력할 수 있다. -->
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="newlogin.css">
+    <link rel="stylesheet" href="newlogin.css">             <!--link는 꼭 head 태그 안에 위치해야 하며, rel과 href라는 두가지 속성을 포함해야 한다. href는 연결할 파일의 링크를 포함하고, rel은 연결된 파일과의 관계를 의미한다.-->
 </head>
 <body>
     <img src="" alt="WealthWise"> 
@@ -11,11 +11,11 @@
         <div>                                               <!--div는 줄을 바꾸는(레이아웃을 바꾸거나 컨텐츠를 나누는) 태그로 이외에 별다른 의미는 없다.-->
             <input type="text" name placeholder="ID">            <!--input 태그를 쓰면 사용자가 무언가를 입력할 수 있는 형태의 블록을 만들어준다.-->
         </div>                                              <!--div 태그를 열었으니, 닫아준다.-->
-        <div>                                               <!--줄을 바꾸기 위해 div 파일을 다시 열어주고, 다음 내용을 작성한다.-->
+        <div>                                               
             <input type="password" placeholder="비밀번호">   <!--input 태그의 type으로 password를 지정하게 되면, 사용자가 입력한 값이 사용자에게 보이지 않도록 뜬다.-->
-        </div>                                              <!--마찬가지로 div 태그를 닫아준다.-->
-        <div>                                               <!--로그인 버튼의 줄 바꿈을 위해 다시 div 태그를 열어준다.-->
-            <button type="submit">로그인</button>       <!--button 태그의 type으로 submit을 지정하게 되면 작성한 내용이 제출되며, 이는 추후에 자바스크립트로 실행 가능하다-.->
+        </div>                                              
+        <div>                                               
+            <button type="submit">로그인</button>       <!--button 태그의 type으로 submit을 지정하게 되면 작성한 내용이 제출되며, 이는 추후에 자바스크립트로 실행 가능하다.-->
         </div>
     </form>
 </body>
