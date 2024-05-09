@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import {Link, Route, Routes} from "react-router-dom"
-import './board.css'
+import './Board_Page.css'
 
 function Board() {
     return (

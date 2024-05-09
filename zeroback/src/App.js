@@ -1,9 +1,8 @@
 import React from "react";
 import {Routes, Route} from "react-router-dom";
-import Main from './component/main';
-import Board from './component/board';
-import Index from './component/index';
-import Sign from "./component/sign";
+import Main from './component/Main_Page';
+import Board from './component/Board_Page';
+import Index from './component/index_page';
 import './App.css';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
         <Route path="/" element={<Main/>} />
         <Route path="/board" element={<Board/>} />
         <Route path="/index" element={<Index/>} />
-        <Route path="/sign_in" element={<Sign/>} />
       </Routes>
     </div>
   );
