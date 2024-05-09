@@ -1,0 +1,32 @@
+#main_links {
+    list-style-type: none;
+    font-family:sans-serif;
+    font-style: normal;
+    margin-left: 80%;
+    font-weight: 100;
+    font-size: 60px;
+    line-height: 150px;
+    width: 300px;
+
+    color: #000000;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main_link {
+    align-self: center;
+    text-decoration: none;
+    color: #232323;
+}
+
+.main_link :hover {
+    cursor: pointer;
+}
+
+#main_links :hover {
+    color: tomato;
+    transform: scale(1.1);
+    transition: transform 0.5s cubic-bezier(0.1,1.0,1.0,1.0), opacity 0.55s ease;
+}   
