@@ -5,7 +5,6 @@ const Login_Page = () => {
     return (
         <div className='wrapper'>
             <form action="">
-                
                 <h1>Log In</h1>
                 <div className="input-box">
                     <input type="text" placeholder="ID" required />
@@ -23,3 +22,5 @@ const Login_Page = () => {
         </div>
     )
 }
+
+export default Login_Page;
