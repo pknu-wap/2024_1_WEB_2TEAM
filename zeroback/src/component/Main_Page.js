@@ -7,7 +7,7 @@ function Main () {
         <div id="main_links">
             <Link to='/index' className="main_link">지수</Link>
             <Link to='/board' className="main_link">게시판</Link>
-            <Link to='/sign_in' className="main_link">로그인</Link>
+            <Link to='/login' className="main_link">로그인</Link>
         </div>
     );
 }
