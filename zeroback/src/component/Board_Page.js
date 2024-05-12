@@ -34,9 +34,11 @@ function Board() {
                 </div>
                 <div id="SubBoard">
                     <div id="buttons">
-                        <button id="write">글쓰기</button>
-                        <button id="scrap_post_manage">스크랩 게시글 관리</button>
-                        <button id="search_button"><img id="search" src={process.env.PUBLIC_URL + '/search.png'}/></button>
+                        <Link to='/post_write'><button id="write">글쓰기</button></Link>
+                        <Link to='/'><button id="scrap_post_manage">스크랩 게시글 관리</button></Link>
+                        <Link to='/'>
+                            <button id="search_button"><img id="search" src={process.env.PUBLIC_URL + '/search.png'}/></button>
+                        </Link>
                     </div>
                     <div class="SubBoards">
                         <p>스크랩 글</p>

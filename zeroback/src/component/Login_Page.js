@@ -23,3 +23,5 @@ const Login_Page = () => {
         </div>
     )
 }
+
+export default Login_Page;

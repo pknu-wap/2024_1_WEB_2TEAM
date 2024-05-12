@@ -4,6 +4,7 @@ import Main from './component/Main_Page';
 import Board from './component/Board_Page';
 import Index from './component/index_page';
 import Login_Page from './component/Login_Page';
+import PostWrite from './component/Post_Write_Page';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/board" element={<Board/>} />
         <Route path="/index" element={<Index/>} />
         <Route path="/login" element={<Login_Page/>} />
+        <Route path="/post_write" element={<PostWrite/>} />
       </Routes>
     </div>
   );
