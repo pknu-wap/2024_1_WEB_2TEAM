@@ -1,16 +1,94 @@
-body{
+.wrapper {
+    width: 328px;
+    height: 419px;
+    background-color: #fff;
+    background-size: cover;
+    color: black;
+    border-radius: 30px;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.login-form {
+    width: 328px;
+    height: 419px;
+    color: #fff;
+    align-content: center;
+    background-color: #fff;
+    justify-content: center;
+    
+}
+
+.login-title {
+    position: relative;
+    top: 100%; bottom: 50px;
+    width: 328px;
     font-size: 40px;
-    align-self: center;
+    text-align: center;
+    background-color: #fff
 }
-.logo-img{                  /*클래스를 불러올 때는 클래스 이름 앞에 .을 붙여서 가져온다.*/
-    font-size: 90px;
+
+.input-box {
+    position: relative;
+    top: 30px; right: auto; left: auto; bottom: 30px;
+    width: 328px;
+    height: 30px;
+    background-color: #fff;
+    margin: 0px;
+    padding: 10px 0px 30px 0px ;
 }
-form{
-    border-radius: 30px solid blue;
-    padding: 10px;
-    margin: 10px;
-    align-self: center;
+
+.input-box input {
+    width: 230px;
+    height: 4px;
+    background: #fff;
+    outline: none;
+    font-size: 16px;
+    color: black;
+    padding: 20px 30px 20px 20px;
+    text-align: start;
 }
-div{
-    font-size: 40px;
+
+.input-box input::placeholder {
+    color: #fff;
+    width: 328px;
+}
+
+.login-button {
+    width: 300px;
+    height: 45px;
+    background: grey;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 700;
+    position: relative;
+    top: 30px;
+    
+}
+
+.register-link {
+    position: relative;
+    top: 30px;
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px 0 15px;
+    background-color: #fff ;
+}
+
+.register-link-anchor {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link-anchor:hover {
+    text-decoration: underline;
 }
