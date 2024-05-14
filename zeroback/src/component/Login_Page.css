@@ -2,11 +2,15 @@
     width: 328px;
     height: 419px;
     background-color: #fff;
+    background-size: cover;
     color: black;
     border-radius: 30px;
     padding: 20px;
     margin: auto;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .login-form {
@@ -15,6 +19,8 @@
     color: #fff;
     align-content: center;
     background-color: #fff;
+    justify-content: center;
+    
 }
 
 .login-title {
@@ -74,7 +80,7 @@
     font-size: 14.5px;
     text-align: center;
     margin-top: 20px 0 15px;
-    background-color: #fff;
+    background-color: #fff ;
 }
 
 .register-link-anchor {
