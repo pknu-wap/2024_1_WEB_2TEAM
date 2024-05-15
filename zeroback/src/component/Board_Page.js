@@ -1,12 +1,13 @@
 import React from "react";
 import NavBar from "./NavBar";
-import {Link, Route, Routes} from "react-router-dom"
+import { Link, Route, Routes } from "react-router-dom"
 import './Board_Page.css'
 
 function Board() {
     return (
         <main>
-            <div id="NavBar">
+            <NavBar />
+            {/* <div id="NavBar">
                 <div id="NavTexts">
                     <Link to='/' className="link">
                         <h1 id="Logo">WealthWise</h1>
@@ -19,7 +20,7 @@ function Board() {
                     </div>
                 </div>
                 <i id="NavLine"></i>
-            </div>
+            </div> */}
             <body id="Board">
                 <div id="MainBoard">
                     <ul id="MainBoardMenu">
@@ -37,7 +38,7 @@ function Board() {
                         <Link to='/post_write'><button id="write">글쓰기</button></Link>
                         <Link to='/'><button id="scrap_post_manage">스크랩 게시글 관리</button></Link>
                         <Link to='/'>
-                            <button id="search_button"><img id="search" src={process.env.PUBLIC_URL + '/search.png'}/></button>
+                            <button id="search_button"><img id="search" src={process.env.PUBLIC_URL + '/search.png'} /></button>
                         </Link>
                     </div>
                     <div class="SubBoards">
