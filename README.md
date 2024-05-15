@@ -17,7 +17,6 @@
     <tr>
     <td align="center"><p>프론트엔드</p></td>
     <td align="center"><p>백엔드</p></td>
-    <td align="center"><p>프론트엔드</p></td>
     <td align="center"><p>백엔드</p></td>
     </tr>
 </table>
