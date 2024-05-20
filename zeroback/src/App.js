@@ -6,6 +6,8 @@ import IndexPage from './component/IndexPage/IndexPage';
 import LoginPage from './component/LoginPage/LoginPage';
 import './App.css';
 
+import MainBoard from "./component/BoardPage/board_main";
+
 function App() {
   return (
     <div>
@@ -14,6 +16,9 @@ function App() {
         <Route path="/board" element={<BoardPage />} />
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/test" element={<MainBoard />} />
+
       </Routes>
     </div>
   );
