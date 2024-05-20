@@ -1,5 +1,6 @@
 import React from "react"
-import InfoInputBox from "./infoInputBox";
+import { Link } from "react-router-dom";
+import InputBox from "./login_input";
 import './LoginPage.css';
 
 function loginPage() {
@@ -7,13 +8,11 @@ function loginPage() {
         <div className="wrapper">
             <form id="login-form" action="">
                 <h1 id="login-title">Log In</h1>
-
-                <InfoInputBox />
-                
+                <InputBox />
                 <button className="login-button" type="submit">Log In</button>
 
                 <div className="register-link" id="register-link">
-                    <p>계정이 없으신가요? <a href="#" id="register-link-anchor">회원가입</a></p>
+                    <p>계정이 없으신가요? <Link to='/' id="register-link-anchor">회원가입</Link></p>
                 </div>
             </form>
         </div>
