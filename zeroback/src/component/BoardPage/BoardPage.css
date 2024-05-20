@@ -1,34 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
-#NavBar {
-    margin-bottom: 30px;
-}
-
-.links {
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-}
-
-.link {
-    margin-right: 3%;
-    font-style: normal;
-    font-weight: 100;
-    font-size: 30px;
-    line-height: 73px;
-    text-decoration: none;
-
-    color: #000000;
-
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.link:hover {
-    cursor: pointer;
-    transform: scale(110%);
-    transition: transform 0.5s cubic-bezier(0.1,1.0,1.0,1.0), opacity 0.55s ease;
-}
-
 #Board {
     width: 94%;
     margin-left: 3%;
@@ -48,7 +19,7 @@
 }
 
 #MainBoardMenu {
-    background-color: #F9F9F9;  
+    background-color: #F9F9F9;
     display: flex;
     justify-content: space-between;
     border-radius: 30px;
@@ -57,7 +28,7 @@
 #MainBoardMenu li {
     list-style: none;
     background-color: #F9F9F9;
-    font-family:fantasy;
+    font-family: fantasy;
     font-style: normal;
     font-weight: 100;
     width: 90px;
@@ -68,7 +39,7 @@
     text-decoration: none;
 }
 
-#MainBoardPostLines  {
+#MainBoardPostLines {
     justify-content: space-between;
     display: flex;
     flex-direction: column;

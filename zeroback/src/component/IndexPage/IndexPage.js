@@ -1,5 +1,5 @@
 // TradingViewWidget.jsx
-import {Route} from "react-router-dom"
+import { Route } from "react-router-dom"
 import React, { useEffect, useRef, memo } from 'react';
 
 function TradingViewWidget() {
@@ -33,14 +33,14 @@ function TradingViewWidget() {
   );
 
   return (
-    <div className="tradingview-widget-container" ref={container}/>
+    <div className="tradingview-widget-container" ref={container} />
   );
 }
 
-function Index() {
+function IndexPage() {
   return (
     <main>
-      <Route path="/index" element={<TradingViewWidget/>}></Route>
+      <Route path="/index" element={<TradingViewWidget />}></Route>
     </main>
   )
 }

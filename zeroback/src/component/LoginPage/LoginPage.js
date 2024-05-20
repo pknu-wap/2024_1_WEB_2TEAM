@@ -1,18 +1,15 @@
 import React from "react"
-import './Login_Page.css';
+import InfoInputBox from "./infoInputBox";
+import './LoginPage.css';
 
-const Login_Page = () => {
+function loginPage() {
     return (
         <div className="wrapper">
             <form id="login-form" action="">
                 <h1 id="login-title">Log In</h1>
-                <div className="input-box">
-                    <input type="text" placeholder="ID" required />
-                </div>
-                <div className="input-box">
-                    <input type="password" placeholder="Password" required />
-                </div>
 
+                <InfoInputBox />
+                
                 <button className="login-button" type="submit">Log In</button>
 
                 <div className="register-link" id="register-link">
@@ -23,4 +20,4 @@ const Login_Page = () => {
     )
 }
 
-export default Login_Page;
+export default loginPage;
