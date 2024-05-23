@@ -7,7 +7,7 @@ import SubBoard from "./board_sub";
 function BoardPage() {
     return (
         <main>
-            <NavBar />
+            <NavBar linkName1={"INDEX"} linkName2={"LOGIN"} link1={'/index'} link2={'/login'} />
             <body id="Board">
                 <MainBoard />
                 <SubBoard />

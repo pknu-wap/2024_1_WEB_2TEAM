@@ -5,6 +5,8 @@ import Hamberger from "./nav_hamberger";
 function NavBar(props) {
     let { linkName1 } = props;
     let { linkName2 } = props;
+    let { link1 } = props;
+    let { link2 } = props;
 
     return (
         <main>
@@ -16,8 +18,8 @@ function NavBar(props) {
                     </Link>
                 </div>
                 <div id="nav-right">
-                    <Link to='/index' className="nav-link">{linkName1}</Link>
-                    <Link to='/board' className="nav-link">{linkName2}</Link>
+                    <Link to={link1} className="nav-link">{linkName1}</Link>
+                    <Link to={link2} className="nav-link">{linkName2}</Link>
                 </div>
             </div>
             <i id="nav-line"></i>
