@@ -17,7 +17,6 @@ import wealthwise.BE.service.CommentService;
 @RequiredArgsConstructor
 
 //프론트와 댓글 상호작용
-
 public class CommentController {
     private final CommentService commentService;
     private final BoardService boardService;
@@ -31,7 +30,7 @@ public class CommentController {
         commentService.writeComment(boardId, req, auth.getName());
 
         model.addAttribute("message", "댓글이 추가되었습니다.");
-        model.addAttribute("nextUrl", "/boards/" + boardId); // 
+        model.addAttribute("nextUrl", "/boards/" + boardId); //
         return "printMessage";
     }
 
@@ -61,6 +60,5 @@ public class CommentController {
         model.addAttribute("nextUrl", "/boards");
         return "printMessage";
     }
-
 
 }

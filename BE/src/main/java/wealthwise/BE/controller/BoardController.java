@@ -53,11 +53,13 @@ public class BoardController {
 
         return "boards/list";
     }
+
     @GetMapping("/write") // "/write" 경로로 GET 요청이 들어왔을 때
     public String boardWritePage(Model model) {
         model.addAttribute("boardCreateRequest", new BoardCreateRequest());
         return "boards/write"; // "boards/write" 뷰를 반환.
     }
+
     @PostMapping("/write") //게시글 작성하는 실제 폼 표시
     public String boardWrite(@ModelAttribute BoardCreateRequest req,
                              Authentication auth, Model model) throws IOException {

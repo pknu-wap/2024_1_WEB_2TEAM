@@ -23,6 +23,7 @@ public class BoardService {
     private final BoardRepository boardRepository;
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
+
     //게시글 불러오기
     public Page<Board> getBoardList(PageRequest pageRequest, String searchType, String keyword) {
         if (searchType != null && keyword != null) {
