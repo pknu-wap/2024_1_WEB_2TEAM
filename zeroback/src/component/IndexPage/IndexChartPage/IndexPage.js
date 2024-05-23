@@ -1,5 +1,5 @@
-import NavBar from "../PublicComponent/NavBar";
-import TradingViewWidget from "./test";
+import NavBar from "../../PublicComponent/NavBar";
+import TradingViewWidget from "./indexChart";
 import "./IndexPage.css"
 
 function IndexPage() {

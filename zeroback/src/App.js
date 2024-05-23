@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from './component/MainPage/MainPage';
 import BoardPage from './component/BoardPage/BoardPage';
-import IndexPage from './component/IndexPage/IndexPage';
+import IndexPage from './component/IndexPage/IndexChartPage/IndexPage';
 import LoginPage from './component/LoginPage/LoginPage';
 import './App.css';
 
