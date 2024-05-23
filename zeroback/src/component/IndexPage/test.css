@@ -1,0 +1,17 @@
+.index_box {
+    justify-content: center;
+    width: 1120px;
+    height: 650px;
+
+    background: #ffffff;
+    border-radius: 30px;
+    display: flex;
+}
+
+.index {
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
+    justify-content: center
+}
