@@ -1,7 +1,6 @@
-/*Router로 안되서 놔둔 파일*/
-
-* {
-    background-color: #E8E8E8;
+@font-face {
+    font-family: "Montserrat Subrayada-Regular";
+    src: url("./MontserratSubrayada-Regular.ttf");
 }
 
 #nav-bar {
@@ -10,14 +9,20 @@
     margin-left: auto;
     margin-right: auto;
     width: 94%;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 #nav-logo {
-    font-family: serif;
+    font-family: "Montserrat Subrayada-Regular";
     font-style: normal;
     font-weight: 300;
-    font-size: 50px;
-    line-height: 30px;
+    font-size: 40px;
+    line-height: 2px;
+
+    display: flex;
+    flex-direction: row;
 
     color: #000000;
 }
@@ -26,15 +31,14 @@
     cursor: pointer;
 }
 
-#nav-links {
-    list-style-type: none;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 100;
-    font-size: 30px;
-    width: 200px;
+#nav-left {
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+}
 
-    color: #000000;
+#nav-right {
+    width: 210px;
     display: flex;
     justify-content: space-between;
 }
@@ -42,26 +46,28 @@
 .nav-link {
     align-self: center;
     text-decoration: none;
-    color: #232323;
+    color: #000000;
+    list-style-type: none;
+    font-family: "Montserrat Subrayada-Regular";
+    font-style: normal;
+    font-weight: 100;
+    font-size: 27px;
 }
 
 .nav-link :hover {
     cursor: pointer;
 }
 
-#nav-links :hover {
+#nav-right :hover {
     color: tomato;
-    transform: scale(1.1);
-    transition: transform 0.5s cubic-bezier(0.1, 1.0, 1.0, 1.0), opacity 0.55s ease;
-}
-
-#nav-txts {
-    display: flex;
-    justify-content: space-between;
 }
 
 #nav-line {
     position: absolute;
-    width: 1410px;
-    border: 1px solid #000000;
+    width: 100%;
+    border: 1px solid #E8E8E8;
+}
+
+body {
+    overflow-x: hidden;
 }

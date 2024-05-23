@@ -5,7 +5,7 @@ import "./IndexPage.css"
 function IndexPage() {
   return (
     <main>
-      <NavBar />
+      <NavBar linkName1={"POST"} linkName2={"LOGIN"} />
       <div className="index-box">
         <TradingViewWidget />
       </div>
