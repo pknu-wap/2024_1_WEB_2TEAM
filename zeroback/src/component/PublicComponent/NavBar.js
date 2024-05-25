@@ -9,7 +9,7 @@ function NavBar(props) {
     let { link2 } = props;
 
     return (
-        <main>
+        <main id="nav">
             <div id="nav-bar">
                 <div id="nav-left">
                     <Hamberger />

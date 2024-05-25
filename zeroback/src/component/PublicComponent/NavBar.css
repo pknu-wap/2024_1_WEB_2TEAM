@@ -3,6 +3,12 @@
     src: url("./MontserratSubrayada-Regular.ttf");
 }
 
+#nav {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+}
+
 #nav-bar {
     left: 0;
     right: 0;

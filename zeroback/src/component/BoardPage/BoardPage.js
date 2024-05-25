@@ -8,7 +8,7 @@ function BoardPage() {
     return (
         <main>
             <NavBar linkName1={"INDEX"} linkName2={"LOGIN"} link1={'/index'} link2={'/login'} />
-            <body id="Board">
+            <body id="board">
                 <MainBoard />
                 <SubBoard />
             </body>
