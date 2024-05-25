@@ -1,22 +1,24 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import InputBox from "./login_input";
 import './LoginPage.css';
 
 function loginPage() {
     return (
-        <div className="wrapper">
-            <form id="login-form" action="">
-                <h1 id="login-title">Log In</h1>
-                <InputBox />
-                <button className="login-button" type="submit">Log In</button>
+        <form id="login-form" action="">
+            <Link to='/' id="login-go_back">
+                <img id="login-go_back-img" src={process.env.PUBLIC_URL + '/go_back.png'} />
+            </Link>
+            <h1 id="login-title">Login</h1>
 
-                <div className="register-link" id="register-link">
-                    <p>계정이 없으신가요? <Link to='/' id="register-link-anchor">회원가입</Link></p>
-                </div>
-            </form>
-        </div>
-    )
+            <div id="login-input_box">
+                <input type="text" className="login-input" placeholder="ID" required />
+                <input type="password" className="login-input" placeholder="Password" required />
+            </div>
+            <button id="login-button" type="submit">Login</button>
+
+            <Link to='/' id="login-create_account_link">회원가입</Link>
+        </form>
+    );
 }
 
 export default loginPage;
