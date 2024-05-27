@@ -8,8 +8,8 @@ function loginPage() {
             <Link to='/' id="login-go_back">
                 <img id="login-go_back-img" src={process.env.PUBLIC_URL + '/go_back.png'} />
             </Link>
-            <h1 id="login-title">Login</h1>
 
+            <h1 id="login-title">Login</h1>
             <div id="login-input_box">
                 <input type="text" className="login-input" placeholder="ID" required />
                 <input type="password" className="login-input" placeholder="Password" required />

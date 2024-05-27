@@ -6,7 +6,7 @@ import IndexPage from './component/IndexPage/IndexChartPage/IndexPage';
 import LoginPage from './component/LoginPage/LoginPage';
 import './App.css';
 
-import Hamberger from "./component/PublicComponent/nav_hamberger";
+import TopBar from "./component/IndexPage/IndexChartPage/indexChartTopbar";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/test" element={<Hamberger />} />
+        <Route path="/test" element={<TopBar />} />
 
       </Routes>
     </div>

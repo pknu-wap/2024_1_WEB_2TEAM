@@ -1,6 +1,5 @@
-.index-box {
-    margin-top: 30px;
-    margin-bottom: 50px;
+#chart-graph {
+    margin-bottom: 30px;
     display: flex;
     justify-content: center;
 }
