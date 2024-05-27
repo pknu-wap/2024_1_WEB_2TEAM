@@ -1,5 +1,27 @@
 #chart-graph {
-    margin-bottom: 30px;
     display: flex;
-    justify-content: center;
+}
+
+#chart-contents {
+    display: flex;
+    flex-direction: column;
+}
+
+#chart-box {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1450px;
+}
+
+#chart-subbar {
+    width: 325px;
+    height: 550px;
+    border: 0.8px solid #d9d9d9;
+    border-radius: 2px;
 }

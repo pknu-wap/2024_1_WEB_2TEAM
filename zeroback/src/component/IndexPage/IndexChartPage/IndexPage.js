@@ -1,5 +1,6 @@
 import NavBar from "../../PublicComponent/NavBar";
 import TradingViewWidget from "./indexChart";
+import SubBar from "./indexChartSubbar";
 import TopBar from "./indexChartTopbar";
 import "./IndexPage.css"
 
@@ -13,7 +14,7 @@ function IndexPage() {
           <div id="chart-graph">
             <TradingViewWidget />
           </div>
-          {/* SubBar */}
+          <SubBar />
         </div>
       </div>
     </main>
