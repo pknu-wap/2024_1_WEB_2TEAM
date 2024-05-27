@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from './pages/MainPage';
 import BoardPage from './pages/BoardPage';
-import IndexPage from './pages/IndexPage';
+import IndexPage from './pages/ChartPage';
 import LoginPage from './pages/LoginPage';
 import './App.css';
 
-import SubBar from "./component/indexChartSubbar";
+import SubBar from "./component/chart_subbar";
 
 function App() {
   return (
