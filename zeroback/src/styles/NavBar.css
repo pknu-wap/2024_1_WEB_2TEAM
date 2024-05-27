@@ -3,6 +3,11 @@
     src: url("../assets/MontserratSubrayada-Regular.ttf");
 }
 
+@font-face {
+    font-family: "KCC-Hanbit";
+    src: url("../assets/KCC-Hanbit.ttf");
+}
+
 #nav {
     position: sticky;
     top: 0;
@@ -54,7 +59,7 @@
     text-decoration: none;
     color: #000000;
     list-style-type: none;
-    font-family: "Montserrat Subrayada-Regular";
+    font-family: "KCC-Hanbit";
     font-style: normal;
     font-weight: 100;
     font-size: 27px;

@@ -7,7 +7,7 @@ import "../styles/ChartPage.css"
 function IndexPage() {
   return (
     <main>
-      <NavBar linkName1={"POST"} linkName2={"LOGIN"} link1={'/board'} link2={'/login'} />
+      <NavBar linkName1={"게시판"} linkName2={"로그인"} link1={'/board'} link2={'/login'} />
       <div id="chart-contents">
         <TopBar />
         <div id="chart-box">
