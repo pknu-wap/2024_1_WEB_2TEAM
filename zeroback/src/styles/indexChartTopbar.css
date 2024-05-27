@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "KCC-Hanbit";
+    src: url("../assets/KCC-Hanbit.ttf");
+
+}
+
+#topbar {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+#topbar-contents {
+    display: flex;
+    justify-content: space-between;
+
+    width: 1450px;
+    height: 30px;
+}
+
+#topbar-bookmark {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+#topbar-checkbox {
+    z-index: 2;
+    opacity: 0;
+
+    display: block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+#topbar-checkbox:checked~#topbar-onimg {
+    display: block;
+}
+
+#topbar-checkbox:checked~#topbar-offimg {
+    display: none;
+}
+
+#topbar-offimg {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    width: 20px;
+}
+
+#topbar-onimg {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    width: 20px;
+}
+
+#topbar-path {
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+    color: #888888;
+}
+
+.topbar-path-link {
+    font-family: "KCC-Hanbit";
+    font-size: 17px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.topbar-path-link:hover {
+    color: tomato;
+}
+
+#topbar-path {
+    display: flex;
+    flex-direction: row;
+}
+
+#topbar-homeimg {
+    width: 20px;
+}
+
+.topbar-path-txt {
+    font-family: "KCC-Hanbit";
+    font-size: 17px;
+}

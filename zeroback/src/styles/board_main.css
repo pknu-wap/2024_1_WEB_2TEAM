@@ -1,0 +1,46 @@
+#board-main-box {
+    width: 63%;
+    height: 1000px;
+
+    background: #F9F9F9;
+    border-radius: 30px;
+}
+
+#board-main-menu {
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+
+#board-main-menu li {
+    list-style: none;
+    background-color: #F9F9F9;
+    font-family: fantasy;
+    font-style: normal;
+    font-weight: 100;
+    width: 90px;
+    color: #000000;
+}
+
+#board-main-menu p {
+    text-decoration: none;
+}
+
+#board-main-lines {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 95%;
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.board-main-line {
+    margin-top: 4%;
+    border: 1.5px solid #E9E9E9;
+}

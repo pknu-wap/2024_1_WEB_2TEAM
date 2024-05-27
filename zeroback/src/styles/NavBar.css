@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Montserrat Subrayada-Regular";
+    src: url("../assets/MontserratSubrayada-Regular.ttf");
+}
+
+#nav {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+}
+
+#nav-bar {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#nav-logo {
+    font-family: "Montserrat Subrayada-Regular";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 2px;
+
+    display: flex;
+    flex-direction: row;
+
+    color: #000000;
+}
+
+#nav-logo:hover {
+    cursor: pointer;
+}
+
+#nav-left {
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#nav-right {
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    align-self: center;
+    text-decoration: none;
+    color: #000000;
+    list-style-type: none;
+    font-family: "Montserrat Subrayada-Regular";
+    font-style: normal;
+    font-weight: 100;
+    font-size: 27px;
+}
+
+.nav-link :hover {
+    cursor: pointer;
+}
+
+#nav-right :hover {
+    color: tomato;
+}
+
+#nav-line {
+    position: absolute;
+    width: 100%;
+    border: 1px solid #E8E8E8;
+}
+
+body {
+    overflow-x: hidden;
+}
