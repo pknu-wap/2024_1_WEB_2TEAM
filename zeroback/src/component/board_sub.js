@@ -1,5 +1,5 @@
 import React from "react";
-import './board_sub.css';
+import '../styles/board_sub.css';
 import SubBoardButtons from "./board_sub_buttons";
 import SubBoardComponent from "./board_sub_component";
 

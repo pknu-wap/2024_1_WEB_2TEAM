@@ -1,5 +1,5 @@
 import React from "react";
-import './board_sub_buttons.css'
+import '../styles/board_sub_buttons.css'
 
 function SubBoardButtons() {
     return (

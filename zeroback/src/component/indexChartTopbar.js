@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './indexChartTopbar.css';
+import '../styles/indexChartTopbar.css';
 
 function TopBar() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './board_main.css';
+import '../styles/board_main.css';
 
 function MainBoard() {
     return (

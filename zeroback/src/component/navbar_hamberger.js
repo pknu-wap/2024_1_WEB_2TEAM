@@ -1,5 +1,5 @@
 import React from "react";
-import './nav_hamberger.css';
+import '../styles/navbar_hamberger.css';
 
 function Hamberger() {
     return (

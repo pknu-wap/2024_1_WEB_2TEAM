@@ -1,5 +1,5 @@
 import React from "react";
-import './board_sub_component.css'
+import '../styles/board_sub_component.css'
 
 function SubBoardComponent(probs) {
     let { name } = probs;

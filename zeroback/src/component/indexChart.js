@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, memo } from 'react';
-import "./indexChart.css"
+import "../styles/indexChart.css"
 
 function TradingViewWidget() {
     const container = useRef();

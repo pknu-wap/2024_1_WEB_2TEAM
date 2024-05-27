@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './indexChartSubbar.css';
+import '../styles/indexChartSubbar.css';
 
 function checkOnlyOne(checkThis) { // 하나만 체크되게 만드는 함수
     const checkboxes = document.getElementsByName('test')

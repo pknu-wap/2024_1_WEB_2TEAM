@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import './NavBar.css';
-import Hamberger from "./nav_hamberger";
+import '../styles/NavBar.css';
+import Hamberger from "./navbar_hamberger";
 
 function NavBar(props) {
     let { linkName1 } = props;

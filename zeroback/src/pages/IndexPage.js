@@ -1,8 +1,8 @@
-import NavBar from "../../PublicComponent/NavBar";
-import TradingViewWidget from "./indexChart";
-import SubBar from "./indexChartSubbar";
-import TopBar from "./indexChartTopbar";
-import "./IndexPage.css"
+import NavBar from "../component/NavBar";
+import TradingViewWidget from "../component/indexChart";
+import SubBar from "../component/indexChartSubbar";
+import TopBar from "../component/indexChartTopbar";
+import "../styles/pages/IndexPage.css"
 
 function IndexPage() {
   return (
