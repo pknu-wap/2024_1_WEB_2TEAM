@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import './App.css';
 
 import NavMenu from "./component/navbar_menu";
+import CreateAccountPage from "./pages/CreateAccountPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/board" element={<BoardPage />} />
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/create_account" element={<CreateAccountPage />} />
 
         <Route path="/test" element={< NavMenu />} />
 
