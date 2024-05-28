@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import '../styles/NavBar.css';
-import Hamberger from "./navbar_hamberger";
+import NavMenu from "./navbar_menu";
 
 function NavBar(props) {
+    const [view, setView] = useState(false);
+
     let { linkName1 } = props;
     let { linkName2 } = props;
     let { link1 } = props;
@@ -12,7 +15,12 @@ function NavBar(props) {
         <main id="nav">
             <div id="nav-bar">
                 <div id="nav-left">
-                    <Hamberger />
+                    <div id="nav-toggle">
+                        <input type="checkbox" onClick={() => { setView(!view) }} />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <Link to='/' className="nav-link">
                         <h1 id="nav-logo">WealthWise</h1>
                     </Link>
@@ -22,8 +30,7 @@ function NavBar(props) {
                     <Link to={link2} className="nav-link">{linkName2}</Link>
                 </div>
             </div>
-            <i id="nav-line"></i>
-            {/* 메뉴 */}
+            {view && <NavMenu />}
         </main>
     );
 }

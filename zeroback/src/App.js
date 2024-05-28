@@ -6,7 +6,7 @@ import IndexPage from './pages/ChartPage';
 import LoginPage from './pages/LoginPage';
 import './App.css';
 
-import SubBar from "./component/chart_subbar";
+import NavMenu from "./component/navbar_menu";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/test" element={<SubBar />} />
+        <Route path="/test" element={< NavMenu />} />
 
       </Routes>
     </div>
