@@ -5,7 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import wealthwise.BE.domain.dto.UserDto;
+import wealthwise.BE.domain.dto.UserJoinRequest;
 import wealthwise.BE.domain.entity.Comment;
+import wealthwise.BE.domain.entity.User;
 import wealthwise.BE.repository.CommentRepository;
 
 import java.util.List;
@@ -98,7 +102,7 @@ public class UserService {
     // 사용자 계정 삭제시 댓글도 삭제
     @Transactional
     public Boolean delete(String loginId, String nowPassword) {
-        User loginUser = userRepository.findByLoginId(loginId).orElse(null);
+        User loginUser = UserRepository.findByLoginId(loginId).orElse(null);
 
         if (loginUser == null) {
             return false;

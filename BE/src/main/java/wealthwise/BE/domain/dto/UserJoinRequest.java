@@ -19,7 +19,6 @@ public class UserJoinRequest {
                 .password(encodedPassword)
                 .nickname(nickname)
                 .createdAt(LocalDateTime.now())
-                .receivedLikeCnt(0)
                 .build();
     }
 }

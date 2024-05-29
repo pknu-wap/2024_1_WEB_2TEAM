@@ -8,7 +8,7 @@ import wealthwise.BE.service.BoardService;
 import wealthwise.BE.service.CommentService;
 
 @RestController
-@RequestMapping("/api/comments")
+@RequestMapping("/comments")
 @RequiredArgsConstructor
 public class CommentController {
     private final CommentService commentService;
