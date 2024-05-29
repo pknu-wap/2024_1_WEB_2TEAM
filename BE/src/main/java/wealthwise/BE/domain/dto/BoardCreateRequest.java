@@ -6,6 +6,7 @@ import wealthwise.BE.domain.entity.User;
 
 @Data
 
+//새 게시물을 만들 때 필요한 데이터를 담고 있음
 public class BoardCreateRequest {
     private String title;
     private String body;

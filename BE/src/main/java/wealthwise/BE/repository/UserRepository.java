@@ -17,10 +17,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 닉네임에 특정 문자열을 포함하는 사용자를 페이징 처리하여 찾기
     Page<User> findAllByNicknameContains(String nickname, PageRequest pageRequest);
 
-    // 특정 로그인 ID를 가진 사용자가 존재하는지 확인
+    // 특정 로그인 ID를 가진 사용자가 존재하는지 확인, 회원가입 할 때 중복 체크
     Boolean existsByLoginId(String loginId);
 
-    //  특정 닉네임을 가진 사용자가 존재하는지 확인
+    //  특정 닉네임을 가진 사용자가 존재하는지 확인, 회원가입 할 때 중복 체크
     Boolean existsByNickname(String nickname);
 
 }

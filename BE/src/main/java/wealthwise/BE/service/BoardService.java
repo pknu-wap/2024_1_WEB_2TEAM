@@ -11,75 +11,109 @@ import wealthwise.BE.domain.entity.Board;
 import wealthwise.BE.domain.entity.User;
 import wealthwise.BE.repository.BoardRepository;
 import wealthwise.BE.repository.CommentRepository;
+import wealthwise.BE.repository.UserRepository;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
-//데이터베이스와 게시판 관련 상호작용
 public class BoardService {
 
     private final BoardRepository boardRepository;
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
 
-    //게시글 불러오기
-    public Page<Board> getBoardList(PageRequest pageRequest, String searchType, String keyword) {
+    /**
+     * 게시글 목록 조회
+     *
+     * @param pageRequest 페이지 요청 정보
+     * @param searchType 검색 유형
+     * @param keyword 검색 키워드
+     * @return 페이지네이션된 게시글 목록
+     */
+
+    public Page<BoardDto> getBoardList(PageRequest pageRequest, String searchType, String keyword) {
+        Page<Board> boards;
         if (searchType != null && keyword != null) {
             if (searchType.equals("title")) {
-                return BoardRepository.findAllByTitleContaining(keyword, pageRequest);
+                boards = boardRepository.findAllByTitleContaining(keyword, pageRequest);
             } else {
-                return boardRepository.findAllByUserNickname(keyword, pageRequest);
+                boards = boardRepository.findAllByUserNickname(keyword, pageRequest);
             }
+        } else {
+            boards = boardRepository.findAll(pageRequest);
         }
-        return boardRepository.findAll(pageRequest);
+        return boards.map(BoardDto::of);
     }
+
+    /**
+     * 특정 게시글 조회
+     *
+     * @param boardId 조회할 게시글의 ID
+     * @return 게시글 DTO
+     */
     public BoardDto getBoard(Long boardId) {
         Optional<Board> optBoard = boardRepository.findById(boardId);
 
-        // ID에 해당하는 게시글이 없으면 null 반환
-        if (optBoard.isEmpty()) {
+        if (optBoard.isPresent()) {
+            return BoardDto.of(optBoard.get());
+        } else {
             return null;
         }
-
-        return BoardDto.of(optBoard.get());
     }
-    //게시글 작성
+
+    /**
+     * 게시글 작성
+     *
+     * @param req 게시글 생성 요청 데이터
+     * @param loginId 사용자 로그인 ID
+     * @return 생성된 게시글의 ID
+     */
     @Transactional
     public Long writeBoard(BoardCreateRequest req, String loginId) {
-        User loginUser = userRepository.findByLoginId(loginId).orElseThrow(() -> new RuntimeException("User not found with loginId: " + loginId));
-        Board savedBoard = boardRepository.save(req.toEntity(loginUser));
-        return savedBoard.getId();
-    }
-    //게시글 수정
-    @Transactional
-    public Long editBoard(Long boardId, BoardDto dto) {
-        Optional<Board> optBoard = boardRepository.findById(boardId);
-
-        // ID에 해당하는 게시글 존재 확인
-        if (optBoard.isEmpty()) {
-            return null; // 게시글 없으면 null 반환
-        }
-
-        Board board = optBoard.get();
-        // 게시글 내용 업데이트
-        board.update(dto);
-
-        return board.getId(); // 수정된 게시글 ID 반환
-    }
-    //게시글 삭제
-    public Long deleteBoard(Long boardId) {
-        Optional<Board> optBoard = boardRepository.findById(boardId);
-
-        // id에 해당하는 게시글이 없으면 null 반환
-        if (optBoard.isEmpty()) {
+        Optional<User> loginUserOpt = userRepository.findByLoginId(loginId);
+        if (loginUserOpt.isPresent()) {
+            User loginUser = loginUserOpt.get();
+            Board savedBoard = boardRepository.save(req.toEntity(loginUser));
+            return savedBoard.getId();
+        } else {
             return null;
         }
-
-        // 게시글 삭제
-        boardRepository.deleteById(boardId);
-        return boardId;
     }
 
+    /**
+     * 게시글 수정
+     *
+     * @param boardId 수정할 게시글의 ID
+     * @param dto 게시글 수정 데이터
+     * @return 수정된 게시글의 ID
+     */
+    @Transactional
+    public Long editBoard(Long boardId, BoardDto dto) {
+        Optional<Board> boardOpt = boardRepository.findById(boardId);
+        if (boardOpt.isPresent()) {
+            Board board = boardOpt.get();
+            board.update(dto);
+            return board.getId();
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 게시글 삭제
+     *
+     * @param boardId 삭제할 게시글의 ID
+     * @return 삭제된 게시글의 ID
+     */
+    @Transactional
+    public Long deleteBoard(Long boardId) {
+        Optional<Board> boardOpt = boardRepository.findById(boardId);
+        if (boardOpt.isPresent()) {
+            boardRepository.deleteById(boardId);
+            return boardId;
+        } else {
+            return null;
+        }
+    }
 }

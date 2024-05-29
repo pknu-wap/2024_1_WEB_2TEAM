@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Getter
+
 public class Board extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  // 데이터베이스에서 자동으로 생성되는 ID 필드를 나타내는 애너테이션
     private Long id;

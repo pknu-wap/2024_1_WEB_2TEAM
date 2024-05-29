@@ -1,64 +1,60 @@
 package wealthwise.BE.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import wealthwise.BE.domain.dto.CommentCreateRequest;
 import wealthwise.BE.service.BoardService;
 import wealthwise.BE.service.CommentService;
-import wealthwise.BE.domain.dto.CommentCreateRequest;
-import wealthwise.BE.service.BoardService;
-import wealthwise.BE.service.CommentService;
 
-@Controller
-@RequestMapping("/comments")
+@RestController
+@RequestMapping("/api/comments")
 @RequiredArgsConstructor
-
-//프론트와 댓글 상호작용
 public class CommentController {
     private final CommentService commentService;
     private final BoardService boardService;
 
-    @PostMapping("/{boardId}/comments") // "/{boardId}/comments" POST
-    public String addComment(@PathVariable Long boardId, // 게시글 ID
-                             @ModelAttribute CommentCreateRequest req, // 댓글 생성 요청 정보
-                             Authentication auth, // 사용자 인증 정보
-                             Model model) {
-
-        commentService.writeComment(boardId, req, auth.getName());
-
-        model.addAttribute("message", "댓글이 추가되었습니다.");
-        model.addAttribute("nextUrl", "/boards/" + boardId); //
-        return "printMessage";
+    /**
+     * 댓글 추가
+     *
+     * @param boardId 게시글 ID
+     * @param req 댓글 생성 요청 정보
+     * @param auth 사용자 인증 정보
+     * @return 생성된 댓글의 ID
+     */
+    @PostMapping("/{boardId}")
+    public Long addComment(@PathVariable Long boardId,
+                           @RequestBody CommentCreateRequest req,
+                           Authentication auth) {
+        return commentService.writeComment(boardId, req, auth.getName());
     }
 
-    //댓글 수정
+    /**
+     * 댓글 수정
+     *
+     * @param commentId 댓글 ID
+     * @param req 댓글 수정 요청 정보
+     * @param auth 사용자 인증 정보
+     * @return 수정된 댓글이 속한 게시글의 ID
+     */
     @PostMapping("/{commentId}/edit")
-    public String editComment(@PathVariable Long commentId, @ModelAttribute CommentCreateRequest req,
-                              Authentication auth, Model model) {
+    public Long editComment(@PathVariable Long commentId,
+                            @RequestBody CommentCreateRequest req,
+                            Authentication auth) {
         Long boardId = commentService.editComment(commentId, req.getBody(), auth.getName());
-        if (boardId == null) {
-            model.addAttribute("message", "잘못된 요청입니다.");
-        } else {
-            model.addAttribute("message", "댓글이 수정 되었습니다.");
-        }
-        model.addAttribute("nextUrl", "/boards");
-        return "printMessage";
+        return boardId;
     }
 
-    //댓글 삭제
-    @GetMapping("/{commentId}/delete")
-    public String deleteComment(@PathVariable Long commentId, Authentication auth, Model model) {
+    /**
+     * 댓글 삭제
+     *
+     * @param commentId 댓글 ID
+     * @param auth 사용자 인증 정보
+     * @return 삭제된 댓글이 속한 게시글의 ID
+     */
+    @DeleteMapping("/{commentId}")
+    public Long deleteComment(@PathVariable Long commentId, Authentication auth) {
         Long boardId = commentService.deleteComment(commentId, auth.getName());
-        if (boardId == null) {
-            model.addAttribute("message", "작성자만 삭제 가능합니다.");
-        } else {
-            model.addAttribute("message", "댓글이 삭제 되었습니다.");
-        }
-        model.addAttribute("nextUrl", "/boards");
-        return "printMessage";
+        return boardId;
     }
-
 }
