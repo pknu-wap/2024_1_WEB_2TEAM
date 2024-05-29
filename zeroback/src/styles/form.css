@@ -3,7 +3,7 @@
     src: url("../assets/KCC-Hanbit.ttf");
 }
 
-#login-form {
+#form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,22 +16,22 @@
     width: 364px;
     height: 448px;
     background: #FFFFFF;
-    border: 1px solid #000000;
+    border: 0.8px solid #000000;
     border-radius: 3px;
 }
 
-#login-go_back {
+#form-go_back {
     position: absolute;
     top: 10px;
     left: 10px;
 }
 
-#login-go_back-img {
+#form-go_back-img {
     width: 30px;
     height: 30px;
 }
 
-#login-title {
+#form-title {
     margin-top: 60px;
     width: 364px;
     text-align: center;
@@ -39,38 +39,54 @@
     font-size: 40px;
 }
 
+.form-input {
+    width: 290px;
+    height: 35px;
+    border: 0.8px solid #d9d9d9;
+    border-radius: 3px;
+}
+
 #login-input_box {
-    height: 100px;
+    height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.login-input {
-    width: 290px;
-    height: 35px;
-    border: 1px solid #000000;
-    border-radius: 3px;
+#create_account-input_box {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#login-button {
+#form-button {
+    margin-top: 10px;
     cursor: pointer;
-    margin-top: 30px;
 
     width: 296px;
     height: 35px;
-    background-color: #EBEBEB;
-    border: 1px solid #EBEBEB;
+    background-color: #d9d9d9;
+    border: 0.8px solid #d9d9d9;
     border-radius: 3px;
 
     font-family: "KCC-Hanbit";
     font-size: 18px;
 }
 
-#login-create_account_link {
+#form-button:hover {
+    color: tomato;
+}
+
+#form-other_link {
     font-family: "KCC-Hanbit";
     margin-top: 20px;
     color: #000000;
     text-decoration-line: none;
+}
+
+#form-other_link:hover {
+    color: tomato;
 }
