@@ -1,12 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import MainPage from './component/MainPage/MainPage';
-import BoardPage from './component/BoardPage/BoardPage';
-import IndexPage from './component/IndexPage/IndexPage';
-import LoginPage from './component/LoginPage/LoginPage';
+import MainPage from './pages/MainPage';
+import BoardPage from './pages/BoardPage';
+import IndexPage from './pages/ChartPage';
+import LoginPage from './pages/LoginPage';
 import './App.css';
 
-import MainBoard from "./component/BoardPage/board_main";
+import NavMenu from "./component/navbar_menu";
+import CreateAccountPage from "./pages/CreateAccountPage";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
         <Route path="/board" element={<BoardPage />} />
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/create_account" element={<CreateAccountPage />} />
 
-        <Route path="/test" element={<MainBoard />} />
+        <Route path="/test" element={< NavMenu />} />
 
       </Routes>
     </div>
