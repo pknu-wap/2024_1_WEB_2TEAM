@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import '../styles/form.css';
 import { setToken } from "../component/Auth";
 import axios from "axios";
+import '../styles/form.css';
 
 function LoginPage() {
     const [inputId, setInputId] = useState("");
@@ -20,7 +20,7 @@ function LoginPage() {
         axios
             .post("http://localhost:8080/users/login", {/* 임시 */
                 loginId: inputId,
-                loginPw: inputPw,
+                password: inputPw,
             })
             .then((res) => {
                 setToken(res.data.token);
