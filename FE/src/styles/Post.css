@@ -1,0 +1,55 @@
+.article_title {
+    background-color: lightgray;
+    width:fit-content;
+
+
+}
+
+tr:hover {
+    background-color: lightgray;
+    cursor:pointer;
+}
+
+th, td{
+    padding: 6px 20px;
+    margin: 0;
+}
+
+th {
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+}
+
+td {
+    /*margin:6px 20px;*/
+    text-align: center;
+}
+
+th:nth-child(2) {
+    width:500px;
+}
+
+td {
+    border-bottom: 1px solid grey;
+}
+
+.board_title {
+    font-size:10pt;
+}
+
+th::after {
+    position:relative;
+    content:"";
+    left:10px;
+    width:2px;
+    height:16px;
+    background-color: gray;
+}
+
+td:nth-child(2) {
+    text-align: left;
+}
+
+.board_post {
+    font-size:9pt;
+}

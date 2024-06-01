@@ -8,10 +8,9 @@ function BoardPage() {
     return (
         <main>
             <NavBar linkName1={"지수"} linkName2={"로그인"} link1={'/index'} link2={'/login'} />
-            <body id="board">
+            <div id="board">
                 <MainBoard />
-                <SubBoard />
-            </body>
+            </div>
         </main>
     )
 }
