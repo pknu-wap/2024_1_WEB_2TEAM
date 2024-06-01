@@ -22,6 +22,7 @@ public class CommentController {
      * @param auth 사용자 인증 정보
      * @return 생성된 댓글의 ID
      */
+
     @PostMapping("/{boardId}")
     public Long addComment(@PathVariable Long boardId,
                            @RequestBody CommentCreateRequest req,

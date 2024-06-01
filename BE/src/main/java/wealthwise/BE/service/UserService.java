@@ -24,33 +24,16 @@ public class UserService {
     private final CommentRepository commentRepository;
     private final BCryptPasswordEncoder encoder;
 
-    public BindingResult joinValid(UserJoinRequest req, BindingResult bindingResult) {
-        // 아이디 검증
-        if (req.getLoginId().isEmpty()) {
-            bindingResult.addError(new FieldError("req", "loginId", "아이디가 비어있습니다."));
-        } else if (req.getLoginId().length() > 10) {
-            bindingResult.addError(new FieldError("req", "loginId", "아이디가 10자가 넘습니다."));
-        } else if (userRepository.existsByLoginId(req.getLoginId())) {
+    public void validateJoinRequest(UserJoinRequest req, BindingResult bindingResult) {
+        if (userRepository.existsByLoginId(req.getLoginId())) {
             bindingResult.addError(new FieldError("req", "loginId", "아이디가 중복됩니다."));
         }
-        // 비밀번호 검증
-        if (req.getPassword().isEmpty()) {
-            bindingResult.addError(new FieldError("req", "password", "비밀번호가 비어있습니다."));
-        }
-
         if (!req.getPassword().equals(req.getPasswordCheck())) {
             bindingResult.addError(new FieldError("req", "passwordCheck", "비밀번호가 일치하지 않습니다."));
         }
-        // 닉네임 검증
-        if (req.getNickname().isEmpty()) {
-            bindingResult.addError(new FieldError("req", "nickname", "닉네임이 비어있습니다."));
-        } else if (req.getNickname().length() > 10) {
-            bindingResult.addError(new FieldError("req", "nickname", "닉네임이 10자가 넘습니다."));
-        } else if (userRepository.existsByNickname(req.getNickname())) {
+        if (userRepository.existsByNickname(req.getNickname())) {
             bindingResult.addError(new FieldError("req", "nickname", "닉네임이 중복됩니다."));
         }
-
-        return bindingResult;
     }
 
     public void join(UserJoinRequest req) {
@@ -61,18 +44,16 @@ public class UserService {
         return userRepository.findByLoginId(loginId).orElse(null);
     }
 
-    public BindingResult editValid(UserDto dto, BindingResult bindingResult, String loginId) {
+    public void validateEditRequest(UserDto dto, BindingResult bindingResult, String loginId) {
         User loginUser = userRepository.findByLoginId(loginId).orElse(null);
 
         if (loginUser == null) {
             bindingResult.addError(new FieldError("dto", "loginId", "유효하지 않은 사용자입니다."));
-            return bindingResult;
+            return;
         }
 
         // 현재 비밀번호 검증
-        if (dto.getNowPassword().isEmpty()) {
-            bindingResult.addError(new FieldError("dto", "nowPassword", "현재 비밀번호가 비어있습니다."));
-        } else if (!encoder.matches(dto.getNowPassword(), loginUser.getPassword())) {
+        if (!encoder.matches(dto.getNowPassword(), loginUser.getPassword())) {
             bindingResult.addError(new FieldError("dto", "nowPassword", "현재 비밀번호가 틀렸습니다."));
         }
 
@@ -82,15 +63,9 @@ public class UserService {
         }
 
         // 닉네임 검증
-        if (dto.getNickname().isEmpty()) {
-            bindingResult.addError(new FieldError("dto", "nickname", "닉네임이 비어있습니다."));
-        } else if (dto.getNickname().length() > 10) {
-            bindingResult.addError(new FieldError("dto", "nickname", "닉네임이 10자가 넘습니다."));
-        } else if (!dto.getNickname().equals(loginUser.getNickname()) && userRepository.existsByNickname(dto.getNickname())) {
+        if (!dto.getNickname().equals(loginUser.getNickname()) && userRepository.existsByNickname(dto.getNickname())) {
             bindingResult.addError(new FieldError("dto", "nickname", "닉네임이 중복됩니다."));
         }
-
-        return bindingResult;
     }
 
     @Transactional
@@ -131,10 +106,6 @@ public class UserService {
 
     public boolean login(UserLoginRequest req) {
         User user = userRepository.findByLoginId(req.getLoginId()).orElse(null);
-        if (user != null && encoder.matches(req.getPassword(), user.getPassword())) {
-            return true;
-        } else {
-            return false;
-        }
+        return user != null && encoder.matches(req.getPassword(), user.getPassword());
     }
 }

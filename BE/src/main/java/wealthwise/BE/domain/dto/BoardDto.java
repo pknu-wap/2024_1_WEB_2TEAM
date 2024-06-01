@@ -1,5 +1,6 @@
 package wealthwise.BE.domain.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import wealthwise.BE.domain.entity.Board;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
+@AllArgsConstructor
 
 public class BoardDto {
     // 게시글의 고유 식별자
