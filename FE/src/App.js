@@ -4,6 +4,7 @@ import MainPage from './pages/MainPage';
 import BoardPage from './pages/BoardPage';
 import IndexPage from './pages/ChartPage';
 import LoginPage from './pages/LoginPage';
+import { RequireToken } from "./component/Auth";
 import './App.css';
 
 import NavMenu from "./component/navbar_menu";
