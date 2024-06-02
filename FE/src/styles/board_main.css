@@ -44,3 +44,8 @@
     margin-top: 4%;
     border: 1.5px solid #E9E9E9;
 }
+
+.board_header {
+    display:flex;
+    
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Post.css'
+import '../styles/BoardTable.css'
 
 function PostTitle() {
     return (
@@ -8,6 +8,7 @@ function PostTitle() {
             <th class="board_title">제목</th>
             <th class="board_title">글쓴이</th>
             <th class="board_title">댓글수</th>
+            <th class="board_title">게시일</th>
         </tr>
     );
 }

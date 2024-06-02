@@ -1,0 +1,35 @@
+.board {
+    position:relative;
+    top:20px;
+    left:calc(50% - 500px);
+    width:1000px;
+}
+
+.board_header {
+    display:flex;
+    justify-content: space-between;
+    width:inherit;
+    padding-bottom: 4px;
+}
+
+.board_table {
+    width:inherit;
+}
+
+.board_page_link {
+    text-decoration: none;
+    color:black;
+    padding-left:4px; 
+}
+
+.board_page {
+    text-align: center;
+    position:relative;
+    left:250px;
+    top:10px;
+    width:500px;
+}
+
+.bold_link {
+    font-weight: 700;
+}

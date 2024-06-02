@@ -1,6 +1,5 @@
 import React from 'react';
-import '../styles/Post.css'
-import { Link } from "react-router-dom";
+import '../styles/BoardTable.css'
 
 function Post(props) {
     var number = props.number;
@@ -8,9 +7,11 @@ function Post(props) {
     var username = props.username;
     var commentCnt = props.commentCnt;
     var link = props.link;
+    var day = props.day;
 
     function Click() {
-        window.location.href = {link};
+        console.log(link);
+        window.location.href = link;
     };
 
     return (
@@ -19,6 +20,7 @@ function Post(props) {
             <td class="board_post">{title}</td>
             <td class="board_post">{username}</td>
             <td class="board_post">{commentCnt}</td>
+            <td class="board_post">{day}</td>
         </tr>
     );
 }

@@ -1,17 +1,18 @@
 .article_title {
     background-color: lightgray;
     width:fit-content;
-
-
 }
 
 tr:hover {
     background-color: lightgray;
+}
+
+td:hover {
     cursor:pointer;
 }
 
 th, td{
-    padding: 6px 20px;
+    padding: 9px 20px;
     margin: 0;
 }
 
@@ -25,6 +26,10 @@ td {
     text-align: center;
 }
 
+td:nth-child(2) {
+    text-overflow: ellipsis;
+}
+
 th:nth-child(2) {
     width:500px;
 }
@@ -34,7 +39,7 @@ td {
 }
 
 .board_title {
-    font-size:10pt;
+    font-size:12pt;
 }
 
 th::after {
@@ -51,5 +56,5 @@ td:nth-child(2) {
 }
 
 .board_post {
-    font-size:9pt;
+    font-size:11pt;
 }
