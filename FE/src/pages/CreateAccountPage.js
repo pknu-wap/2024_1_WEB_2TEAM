@@ -28,7 +28,7 @@ function CreateAccountPage() {
 
     function onClickCreateAccount() {
         axios
-            .post("http://localhost:8080/users/login", {/* 임시 */
+            .post("http://localhost:8080/users/signup", {/* 임시 */
                 nickname: inputNickname,
                 password: inputPassword,
                 passwordCheck: inputPasswordCheck,
@@ -54,7 +54,7 @@ function CreateAccountPage() {
                 <input
                     type="text"
                     className="form-input"
-                    placeholder="Name"
+                    placeholder="nickname"
                     value={inputNickname}
                     onChange={handleNickname}
                     required />

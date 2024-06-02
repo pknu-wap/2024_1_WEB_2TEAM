@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setToken } from "../component/Auth";
 import axios from "axios";
 import '../styles/form.css';
@@ -7,6 +7,7 @@ import '../styles/form.css';
 function LoginPage() {
     const [inputId, setInputId] = useState("");
     const [inputPw, setInputPw] = useState("");
+    const navigate = useNavigate();
 
     function handleInputId(e) {
         setInputId(e.target.value);
@@ -18,13 +19,15 @@ function LoginPage() {
 
     function onClickLogin() {
         axios
-            .post("http://localhost:8080/users/login", {/* 임시 */
+            .post("http://localhost:8080/users/login", {
                 loginId: inputId,
                 password: inputPw,
             })
             .then((res) => {
-                setToken(res.data.token);
-                Navigate("/profile");
+                if (res.data.token) {
+                    setToken(res.data.token);
+                    navigate("/");
+                }
             })
             .catch((error) => {
                 console.log(error, "error");
@@ -32,7 +35,7 @@ function LoginPage() {
     };
 
     return (
-        <form id="form" action="">
+        <div id="form">
             <Link to='/' id="form-go_back">
                 <img id="form-go_back-img" src={process.env.PUBLIC_URL + '/go_back.png'} />
             </Link>
@@ -54,10 +57,10 @@ function LoginPage() {
                     onChange={handleInputPw}
                     required />
             </div>
-            <button id="form-button" type="submit" onSubmit={onClickLogin}>Login</button>
+            <button id="form-button" type="submit" onClick={onClickLogin}>Login</button>
 
             <Link to='/create_account' id="form-other_link">회원가입</Link>
-        </form>
+        </div>
     );
 }
 

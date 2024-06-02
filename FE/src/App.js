@@ -9,6 +9,7 @@ import './App.css';
 
 import NavMenu from "./component/navbar_menu";
 import CreateAccountPage from "./pages/CreateAccountPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/create_account" element={<CreateAccountPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
 
         <Route path="/test" element={< NavMenu />} />
 

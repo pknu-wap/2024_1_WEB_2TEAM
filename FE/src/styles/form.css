@@ -44,6 +44,8 @@
     height: 35px;
     border: 0.8px solid #d9d9d9;
     border-radius: 3px;
+    font-family: "KCC-Hanbit";
+    font-size: 14px;
 }
 
 #login-input_box {
@@ -89,4 +91,12 @@
 
 #form-other_link:hover {
     color: tomato;
+}
+
+.form-text {
+    width: 290px;
+    height: 35px;
+    font-family: "KCC-Hanbit";
+    font-size: 18px;
+    border-bottom: 0.8px solid #d9d9d9;
 }
