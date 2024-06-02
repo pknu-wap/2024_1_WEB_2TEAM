@@ -7,10 +7,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import wealthwise.BE.domain.dto.BoardCreateRequest;
 import wealthwise.BE.domain.dto.BoardDto;
+import wealthwise.BE.domain.dto.CommentDto;
 import wealthwise.BE.domain.entity.Board;
 import wealthwise.BE.domain.entity.User;
 import wealthwise.BE.repository.BoardRepository;
 import wealthwise.BE.repository.UserRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +22,7 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
     private final UserRepository userRepository;
+    private final CommentService commentService; // CommentService 주입
 
     @Transactional
     public Long writeBoard(BoardCreateRequest req, String loginId) {
@@ -35,9 +40,13 @@ public class BoardService {
         return boardRepository.findAll(pageRequest).map(BoardDto::of);
     }
 
-    public BoardDto getBoard(Long boardId) {
+    @Transactional
+    public BoardDto getBoardWithComments(Long boardId) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
-        return BoardDto.of(board);
+        List<CommentDto> comments = commentService.findAllByBoardId(boardId).stream()
+                .map(CommentDto::of)
+                .collect(Collectors.toList());
+        return BoardDto.of(board, comments);
     }
 
     @Transactional

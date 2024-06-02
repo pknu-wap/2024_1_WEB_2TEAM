@@ -26,6 +26,7 @@ public class Board extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)  // 다대일(N:1) 관계를 나타내는 애너테이션
     private User user;      // 게시글을 작성한 사용자를 나타내는 필드
 
+
     @OneToMany(mappedBy = "board", orphanRemoval = true)  // 일대다(1:N) 관계를 나타내는 애너테이션
     private List<Comment> comments; // 게시글에 달린 댓글 리스트를 나타내는 필드
     private Integer commentCnt;     // 게시글에 달린 댓글 수를 나타내는 필드

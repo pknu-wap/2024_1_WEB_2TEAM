@@ -13,6 +13,7 @@ import wealthwise.BE.domain.entity.Comment;
 import wealthwise.BE.domain.entity.User;
 import wealthwise.BE.repository.CommentRepository;
 import wealthwise.BE.repository.UserRepository;
+import wealthwise.BE.util.JwtUtil;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
     private final BCryptPasswordEncoder encoder;
+    private final JwtUtil jwtUtil;  // JWT 유틸리티 클래스 주입
 
     public void validateJoinRequest(UserJoinRequest req, BindingResult bindingResult) {
         if (userRepository.existsByLoginId(req.getLoginId())) {
@@ -36,8 +38,29 @@ public class UserService {
         }
     }
 
-    public void join(UserJoinRequest req) {
-        userRepository.save(req.toEntity(encoder.encode(req.getPassword())));
+    @Transactional
+    public String join(UserJoinRequest req) {
+        User user = User.builder()
+                .loginId(req.getLoginId())
+                .password(encoder.encode(req.getPassword()))
+                .nickname(req.getNickname())
+                .build();
+        userRepository.save(user);
+
+        // JWT 토큰 생성 후 반환
+        return jwtUtil.generateToken(user);
+    }
+
+    public String login(UserLoginRequest req) {
+        User user = userRepository.findByLoginId(req.getLoginId())
+                .orElse(null);
+
+        if (user != null && encoder.matches(req.getPassword(), user.getPassword())) {
+            // JWT 토큰 생성 후 반환
+            return jwtUtil.generateToken(user);
+        } else {
+            return null;
+        }
     }
 
     public User myInfo(String loginId) {
@@ -103,9 +126,12 @@ public class UserService {
             return false;
         }
     }
-
-    public boolean login(UserLoginRequest req) {
-        User user = userRepository.findByLoginId(req.getLoginId()).orElse(null);
-        return user != null && encoder.matches(req.getPassword(), user.getPassword());
+    // 사용자 정보 반환 메서드 추가
+    public UserDto getUserInfo(String loginId) {
+        User user = userRepository.findByLoginId(loginId).orElse(null);
+        if (user != null) {
+            return UserDto.of(user);
+        }
+        return null;
     }
 }

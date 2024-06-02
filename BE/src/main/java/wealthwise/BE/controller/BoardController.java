@@ -1,6 +1,7 @@
 package wealthwise.BE.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
@@ -11,7 +12,9 @@ import wealthwise.BE.service.BoardService;
 import wealthwise.BE.service.CommentService;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/boards")
@@ -21,21 +24,33 @@ public class BoardController {
     private final CommentService commentService;
 
     @GetMapping
-    public List<BoardDto> getBoardList(@RequestParam(required = false, defaultValue = "1") int page,
-                                       @RequestParam(required = false) String sortType,
-                                       @RequestParam(required = false) String searchType,
-                                       @RequestParam(required = false) String keyword) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+    public Map<String, Object> getBoardList(@RequestParam(required = false, defaultValue = "1") int page,
+                                            @RequestParam(required = false) String sortType,
+                                            @RequestParam(required = false) String searchType,
+                                            @RequestParam(required = false) String keyword) {
+        // 페이지 요청 생성
+        PageRequest pageRequest = PageRequest.of(page - 1, 15, Sort.by("id").descending());
 
+        // 정렬 유형에 따라 페이지 요청 설정 변경
         if (sortType != null) {
             if (sortType.equals("date")) {
-                pageRequest = PageRequest.of(page - 1, 10, Sort.by("createdAt").descending());
+                pageRequest = PageRequest.of(page - 1, 15, Sort.by("createdAt").descending());
             } else if (sortType.equals("comment")) {
-                pageRequest = PageRequest.of(page - 1, 10, Sort.by("commentCnt").descending());
+                pageRequest = PageRequest.of(page - 1, 15, Sort.by("commentCnt").descending());
             }
         }
 
-        return boardService.getBoardList(pageRequest, searchType, keyword).getContent();
+        // 게시글 목록을 서비스 계층에서 가져와 반환
+        Page<BoardDto> boardPage = boardService.getBoardList(pageRequest, searchType, keyword);
+
+        // 페이지 정보와 게시글 목록을 포함한 Map 생성
+        Map<String, Object> response = new HashMap<>();
+        response.put("totalPages", boardPage.getTotalPages()); // 총 페이지 수
+        response.put("totalElements", boardPage.getTotalElements()); // 총 게시글 수
+        response.put("currentPage", boardPage.getNumber() + 1); // 현재 페이지 (0부터 시작하므로 1을 더함)
+        response.put("pageSize", boardPage.getSize()); // 페이지 크기
+        response.put("boards", boardPage.getContent()); // 게시글 목록
+        return response;
     }
 
     @GetMapping("/write")
@@ -53,7 +68,8 @@ public class BoardController {
 
     @GetMapping("/{boardId}")
     public BoardDto getBoardDetail(@PathVariable Long boardId) {
-        return boardService.getBoard(boardId);
+        BoardDto boardDto = boardService.getBoardWithComments(boardId);
+        return boardDto;
     }
 
     @PostMapping("/{boardId}/edit")
