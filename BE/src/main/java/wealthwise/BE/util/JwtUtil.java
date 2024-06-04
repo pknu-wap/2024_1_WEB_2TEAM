@@ -3,29 +3,33 @@ package wealthwise.BE.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 import wealthwise.BE.domain.entity.User;
 
+import javax.crypto.SecretKey;
+import java.util.Base64;
 import java.util.Date;
 
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = "your_secret_key";
+    private final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // SecretKey 객체를 직접 사용
     private final long EXPIRATION_TIME = 1000 * 60 * 60; // 1시간
 
     public String generateToken(User user) {
         return Jwts.builder()
-                .setSubject(user.getLoginId()) // loginId를 사용
+                .setSubject(user.getLoginId())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .signWith(SECRET_KEY) // SecretKey 객체를 사용하여 서명
                 .compact();
     }
 
     public Claims extractClaims(String token) {
-        return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
+        return Jwts.parserBuilder()
+                .setSigningKey(SECRET_KEY) // SecretKey 객체를 사용하여 서명 검증
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
@@ -40,6 +44,6 @@ public class JwtUtil {
     }
 
     public String extractLoginId(String token) {
-        return extractClaims(token).getSubject(); // loginId를 추출
+        return extractClaims(token).getSubject();
     }
 }

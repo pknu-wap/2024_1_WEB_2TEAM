@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import wealthwise.BE.domain.dto.UserDto;
 import wealthwise.BE.domain.dto.UserJoinRequest;
 import wealthwise.BE.domain.dto.UserLoginRequest;
@@ -23,6 +25,19 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder encoder;
     private final JwtUtil jwtUtil;
+
+    // 회원가입 요청 검증 메서드 추가
+    public void validateJoinRequest(UserJoinRequest req, BindingResult bindingResult) {
+        if (userRepository.existsByLoginId(req.getLoginId())) {
+            bindingResult.addError(new FieldError("req", "loginId", "아이디가 중복됩니다."));
+        }
+        if (!req.getPassword().equals(req.getPasswordCheck())) {
+            bindingResult.addError(new FieldError("req", "passwordCheck", "비밀번호가 일치하지 않습니다."));
+        }
+        if (userRepository.existsByNickname(req.getNickname())) {
+            bindingResult.addError(new FieldError("req", "nickname", "닉네임이 중복됩니다."));
+        }
+    }
 
     @Transactional
     public String join(UserJoinRequest req) {
