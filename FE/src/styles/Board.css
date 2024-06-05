@@ -1,3 +1,16 @@
+@font-face {
+    font-family: "KCC-Hanbit";
+    src: url("../assets/KCC-Hanbit.ttf");
+}
+
+main {
+    min-height: 100vh;
+}
+
+.post_write_back{
+    background-color: lightgray;
+}
+
 .board {
     position:relative;
     top:20px;
@@ -5,11 +18,63 @@
     width:1000px;
 }
 
+.board_write_back {
+    position:absolute;
+    left:calc(50% - 500px);
+    min-height: calc(100vh - 57px);
+    width:1000px;
+    background-color: white;
+}
+
+.board_write {
+    margin:50px 100px 0px 100px;
+    width:800px;
+    height:calc(100% - 57px - 10px);
+}
+
+.post_write_title {
+    height:120px;
+}
+
+.post_write_contour {
+    position:relative;
+    background-color: lightgray;
+    height:1px;
+    left:32px;
+    width:730px;
+    margin:10px 0px;
+}
+
+.post_write_submit_button {
+    float:right;
+    margin:20px 0px;
+    margin-right:35px;
+    font-size:large;
+    font-family: "KCC-Hanbit";
+    width:100px;
+    height:60pt;
+    border:none;
+    background-color: #FAFAFA;
+}
+
+.board_write textarea:focus {
+    outline: none;
+}
+
+.post_write_content {
+    height: calc(100vh - 300px);
+}
+
 .board_header {
     display:flex;
     justify-content: space-between;
     width:inherit;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
+}
+
+.board_new_post_button {
+    text-decoration: none;
+    color: black;
 }
 
 .board_table {
@@ -32,4 +97,24 @@
 
 .bold_link {
     font-weight: 700;
+}
+
+.post_write_title_input {
+    margin:30px;
+    font-size: 32pt;
+    border: none;
+    resize: none;
+    height:40pt;
+    width:calc(100% - 200px);
+    font-family: "KCC-Hanbit";
+}
+
+.post_write_content_input {
+    margin:30px;
+    font-size: 15pt;
+    border: none;
+    resize: none;
+    height:450pt;
+    width:calc(100% - 70px);
+    font-family: "KCC-Hanbit";
 }

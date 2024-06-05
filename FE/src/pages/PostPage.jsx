@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import '../styles/MainPage.css'
+import '../styles/Board.css'
+import PostWrite from '../component/PostWrite.jsx'
+import NavBar from "../component/NavBar.js";
 
 function PostPage() {
     return (
-        <div id="main-links">
-            <Link to='/index' className="main-link">지수</Link>
-            <Link to='/board' className="main-link">게시판</Link>
-            <Link to='/login' className="main-link">로그인</Link>
-        </div>
+        <main class="post_write_back">
+            <NavBar linkName1={"지수"} linkName2={"로그인"} link1={'/index'} link2={'/login'} />
+            <div class="board_write_back">
+                <PostWrite />
+            </div>
+        </main>
     );
 }
 
