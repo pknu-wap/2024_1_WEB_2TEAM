@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "KCC-Hanbit";
+    src: url("../assets/KCC-Hanbit.ttf");
+}
+
+.chart-button {
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.chartCheckbox:hover~.sub-button-name {
+    color: tomato;
+}
+
+#big {
+    height: 55px;
+    font-family: "KCC-Hanbit";
+    font-size: 38px;
+}
+
+#middle {
+    height: 44px;
+    font-family: "KCC-Hanbit";
+    font-size: 27px;
+}
+
+#small {
+    height: 32px;
+    font-family: "KCC-Hanbit";
+    font-size: 15px;
+}
+
+.chartCheckbox {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    z-index: 2;
+    -webkit-touch-callout: none;
+}
+
+.chartCheckbox:checked~.sub-button-name {
+    color: dimgrey;
+    text-decoration: underline;
+}
