@@ -34,14 +34,14 @@ function DetailPage() {
 
     return (
         <main>
-            <NavBar linkName1={"지수"} linkName2={"로그인"} link1={'/index'} link2={'/login'} />
-            <Detail 
-                boardId={boardId} 
-                title={title} 
+            <NavBar linkName1={"지수"} link1={'/index'} />
+            <Detail
+                boardId={boardId}
+                title={title}
                 userNickname={userNickname} // writer 대신 userNickname 사용
-                date={date} 
-                context={context} 
-                comments={comments} 
+                date={date}
+                context={context}
+                comments={comments}
                 refreshComments={getData} // getData 함수를 Detail 컴포넌트에 전달
             />
         </main>

@@ -7,7 +7,7 @@ import NavBar from "../component/NavBar.js";
 function PostPage() {
     return (
         <main class="post_write_back">
-            <NavBar linkName1={"지수"} linkName2={"로그인"} link1={'/index'} link2={'/login'} />
+            <NavBar linkName1={"지수"} link1={'/index'} />
             <div class="board_write_back">
                 <PostWrite />
             </div>

@@ -18,3 +18,8 @@ export function RequireToken({ children }) {
 
     return children;
 }
+
+export function isTokenAvailable() {
+    const token = localStorage.getItem('rasyueToken');
+    return token !== null && token !== undefined;
+};

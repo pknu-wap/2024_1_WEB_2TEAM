@@ -7,7 +7,7 @@ import SubBoard from "../component/board_sub";
 function BoardPage() {
     return (
         <main>
-            <NavBar linkName1={"지수"} linkName2={"로그인"} link1={'/index'} link2={'/login'} />
+            <NavBar linkName1={"지수"} link1={'/index'} />
             <div id="board">
                 <MainBoard />
             </div>
