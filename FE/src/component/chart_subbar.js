@@ -32,8 +32,6 @@ function SubBar(props) {
         ));
     }
 
-    const { id } = useParams();
-
     const getData = useCallback(async () => {
         try {
             const response = await axios.get(`http://localhost:8080/index/${indexId}`);
@@ -41,7 +39,7 @@ function SubBar(props) {
         } catch (error) {
             console.error("Failed to fetch data:", error);
         }
-    }, [id]);
+    }, [indexId]);
 
     useEffect(() => {
         getData();
