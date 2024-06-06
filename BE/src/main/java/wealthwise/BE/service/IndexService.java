@@ -17,10 +17,6 @@ public class IndexService {
         return indexRepository.findByMajorCategory(category);
     }
 
-    public List<Index> getIndexesByCategoryAndIdRange(String category, Integer startId, Integer endId) {
-        return indexRepository.findByMajorCategoryAndIndexIdBetween(category, startId, endId);
-    }
-
     public String getCategoryById(int id) {
         switch (id) {
             case 1:
