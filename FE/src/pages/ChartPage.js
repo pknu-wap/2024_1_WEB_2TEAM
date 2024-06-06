@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import NavBar from "../component/NavBar";
 import SubBar from "../component/chart_subbar";
 import TopBar from "../component/chart_topbar";

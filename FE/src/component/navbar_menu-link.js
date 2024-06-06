@@ -8,11 +8,11 @@ function MenuLinkButton(probs) {
     let { sub2 } = probs;
     let { sub3 } = probs;
     let { sub4 } = probs;
+    let { id } = probs;
 
     return (
         <div id="nav-menu-button">
-            <input type="button" className="nav-menu-checkbox" name="major-button" />
-            <div className="nav-menu-title">{title}</div>
+            <Link to={`/index/${id}`} className="nav-menu-title">{title}</Link> {/* id별로 바꿀 예정 */}
             <div id="nav-menu-subs">
                 <div className="nav-menu-sublink">{sub1}</div>
                 <div className="nav-menu-sublink">{sub2}</div>
