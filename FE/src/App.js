@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/board" element={<BoardPage />} />
-        <Route path="/index/:chartId" element={<IndexPage />} />
+        <Route path="/index/:indexId" element={<IndexPage />} />
         <Route path="/index" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/post" element={<PostPage />} />

@@ -34,7 +34,9 @@ function SubBar(props) {
 
     const getData = useCallback(async () => {
         try {
+            console.log(`Fetching data for indexId: ${indexId}`); // indexId 값 확인
             const response = await axios.get(`http://localhost:8080/index/${indexId}`);
+            console.log("Fetched data:", response.data); // Fetch된 데이터를 콘솔에 출력
             setIndexData(response.data);
         } catch (error) {
             console.error("Failed to fetch data:", error);
@@ -42,8 +44,9 @@ function SubBar(props) {
     }, [indexId]);
 
     useEffect(() => {
+        console.log('Indexdata updated:', Indexdata);
         getData();
-    }, [getData]);
+    }, [getData]); 
 
     /*  function getChartData() { // 임시
          return [
@@ -175,7 +178,7 @@ function SubBar(props) {
 
     return (
         <div id="subbar">
-            <div id="subbar-classification" onChange={setDatas()}>
+            <div id="subbar-classification" onChange={setDatas}>
                 {loadIndexs()}
             </div>
         </div>
