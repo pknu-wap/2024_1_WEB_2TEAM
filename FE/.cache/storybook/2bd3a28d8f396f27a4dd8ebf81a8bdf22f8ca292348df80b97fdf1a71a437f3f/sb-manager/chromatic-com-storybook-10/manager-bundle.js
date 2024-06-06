@@ -1,0 +1,1 @@
+import '/Users/mac/Documents/GitHub/2024_1_WEB_2TEAM/FE/node_modules/@chromatic-com/storybook/dist/manager.mjs';
