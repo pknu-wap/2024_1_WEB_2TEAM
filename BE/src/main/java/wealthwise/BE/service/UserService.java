@@ -26,19 +26,6 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder encoder;
     private final JwtUtil jwtUtil;
 
-    // 회원가입 요청 검증 메서드 추가
-    public void validateJoinRequest(UserJoinRequest req, BindingResult bindingResult) {
-        if (userRepository.existsByLoginId(req.getLoginId())) {
-            bindingResult.addError(new FieldError("req", "loginId", "아이디가 중복됩니다."));
-        }
-        if (!req.getPassword().equals(req.getPasswordCheck())) {
-            bindingResult.addError(new FieldError("req", "passwordCheck", "비밀번호가 일치하지 않습니다."));
-        }
-        if (userRepository.existsByNickname(req.getNickname())) {
-            bindingResult.addError(new FieldError("req", "nickname", "닉네임이 중복됩니다."));
-        }
-    }
-
     @Transactional
     public String join(UserJoinRequest req) {
         User user = User.builder()

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { setToken } from "../component/Auth";
 import axios from "axios";
+import { setToken } from "../component/Auth";
 import '../styles/form.css';
 
 function LoginPage() {
@@ -9,15 +9,15 @@ function LoginPage() {
     const [inputPw, setInputPw] = useState("");
     const navigate = useNavigate();
 
-    function handleInputId(e) {
+    const handleInputId = (e) => {
         setInputId(e.target.value);
     };
 
-    function handleInputPw(e) {
+    const handleInputPw = (e) => {
         setInputPw(e.target.value);
     };
 
-    function onClickLogin() {
+    const onClickLogin = () => {
         axios
             .post("http://localhost:8080/users/login", {
                 loginId: inputId,
@@ -26,7 +26,7 @@ function LoginPage() {
             .then((res) => {
                 if (res.data.token) {
                     setToken(res.data.token);
-                    navigate("/");
+                    navigate("/profile");
                 }
             })
             .catch((error) => {
@@ -37,7 +37,7 @@ function LoginPage() {
     return (
         <div id="form">
             <Link to='/' id="form-go_back">
-                <img id="form-go_back-img" src={process.env.PUBLIC_URL + '/go_back.png'} />
+                <img id="form-go_back-img" src={process.env.PUBLIC_URL + '/go_back.png'} alt="Go Back" />
             </Link>
 
             <h1 id="form-title">Login</h1>
