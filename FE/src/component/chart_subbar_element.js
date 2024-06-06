@@ -18,6 +18,8 @@ function ChartSsubbarElement(props) {
         props.set_major_cg(props.major_cg);
         props.set_medium_cg(props.medium_cg);
         props.set_minor_cg(props.minor_cg);
+        props.setId(props.id);
+        console.log(props.id);
     }
 
     return (

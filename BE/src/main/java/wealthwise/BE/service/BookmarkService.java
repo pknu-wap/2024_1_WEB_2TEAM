@@ -10,6 +10,9 @@ import wealthwise.BE.repository.BookmarkRepository;
 import wealthwise.BE.repository.IndexRepository;
 import wealthwise.BE.repository.UserRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class BookmarkService {
 
@@ -21,7 +24,8 @@ public class BookmarkService {
     private IndexRepository indexRepository;
 
     public boolean isBookmarked(Long indexId, String loginId) {
-        return bookmarkRepository.existsByUserLoginIdAndIndexId(loginId, indexId);
+        Integer intIndexId = Math.toIntExact(indexId);
+        return bookmarkRepository.existsByUserLoginIdAndIndexIndexId(loginId, intIndexId);
     }
 
     @Transactional
@@ -29,7 +33,6 @@ public class BookmarkService {
         User user = userRepository.findByLoginId(loginId)
                 .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
 
-        // Convert Long to Integer
         Integer intIndexId = Math.toIntExact(indexId);
 
         Index index = indexRepository.findById(intIndexId)
@@ -46,5 +49,14 @@ public class BookmarkService {
             bookmark.setIndex(index);
             bookmarkRepository.save(bookmark);
         }
+    }
+
+    public List<Index> getUserBookmarks(String loginId) {
+        User user = userRepository.findByLoginId(loginId)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+        return bookmarkRepository.findByUser(user)
+                .stream()
+                .map(Bookmark::getIndex)
+                .collect(Collectors.toList());
     }
 }
