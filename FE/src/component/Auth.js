@@ -1,18 +1,19 @@
+/* 토큰 setter와 getter? */
 import { Navigate, useLocation } from "react-router-dom";
 
 export const setToken = (token) => {
-    localStorage.setItem('rasyueToken', token);
-};
-
-export const getToken = () => {
-    return localStorage.getItem('rasyueToken');
-};
-
+    localStorage.setItem('rasyueToken', token)
+}
+export const getToken = (token) => {
+    return localStorage.getItem('rasyueToken')
+}
 export function RequireToken({ children }) {
-    let auth = getToken(); // getToken을 사용하여 토큰 가져오기
+
+    let auth = fetch();/* fetchToken() */
     let location = useLocation();
 
     if (!auth) {
+
         return <Navigate to="/" state={{ from: location }} />;
     }
 

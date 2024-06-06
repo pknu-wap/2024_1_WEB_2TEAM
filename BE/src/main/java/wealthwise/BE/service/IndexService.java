@@ -24,23 +24,23 @@ public class IndexService {
     public String getCategoryById(int id) {
         switch (id) {
             case 1:
-                return "주식";
+                return "stock";
             case 2:
-                return "채권";
+                return "bond";
             case 3:
-                return "암호화폐";
+                return "crypto";
             case 4:
-                return "환율";
+                return "exchange_rate";
             case 5:
-                return "원자재";
+                return "raw_materials";
             case 6:
-                return "한국";
+                return "korea";
             case 7:
-                return "미국";
+                return "america";
             case 8:
-                return "중국";
+                return "china";
             case 9:
-                return "유로존";
+                return "eurozone";
             default:
                 throw new IllegalArgumentException("Invalid id: " + id);
         }
