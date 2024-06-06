@@ -59,9 +59,13 @@ public class UserController {
         HttpSession session = request.getSession(false); // 기존 세션이 있는지 확인
         if (session != null) {
             session.invalidate(); // 세션 무효화
+            System.out.println("Session invalidated successfully."); // 로그 추가
+        } else {
+            System.out.println("No session found."); // 로그 추가
         }
         return ResponseEntity.ok("로그아웃 성공"); // 로그아웃 성공 메시지 반환
     }
+
 
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile(Authentication auth) {

@@ -10,13 +10,34 @@ function ProfilePage() {
     const [loginId, setLoginId] = useState('');
 
     const signOut = () => {
-        localStorage.removeItem("token_key");
-        navigate("/");
+        const token = getToken();
+        if (!token) {
+            console.log("No token found, redirecting to home.");
+            navigate("/");
+            return;
+        }
+
+        axios.get("http://localhost:8080/users/logout", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(() => {
+            console.log("Logout successful, removing token and redirecting to home.");
+            localStorage.removeItem("token_key");
+            navigate("/");
+        })
+        .catch(error => {
+            console.log("Logout error:", error);
+            localStorage.removeItem("token_key");
+            navigate("/");
+        });
     };
 
     useEffect(() => {
         const token = getToken(); // token_key를 가져오는 함수를 호출합니다.
         if (!token) {
+            console.log("No token found, redirecting to login.");
             navigate("/login");
             return;
         }
@@ -27,11 +48,12 @@ function ProfilePage() {
             }
         })
         .then(response => {
+            console.log("Profile data fetched:", response.data);
             setNickname(response.data.nickname);
             setLoginId(response.data.loginId);
         })
         .catch(error => {
-            console.log(error);
+            console.log("Profile fetch error:", error);
             if (error.response && error.response.status === 403) {
                 navigate("/login");
             }
