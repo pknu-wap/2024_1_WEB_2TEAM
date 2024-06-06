@@ -14,7 +14,7 @@ function SubBar(props) {
     const [Indexdata, setIndexData] = useState([]);
 
     function loadIndexs() {
-        const data = Indexdata; // getData로 변경 예정
+        const data = Indexdata;
         console.log(data);
 
         return data.map((entity) => (
@@ -46,7 +46,7 @@ function SubBar(props) {
     useEffect(() => {
         console.log('Indexdata updated:', Indexdata);
         getData();
-    }, [getData]); 
+    }, [getData]);
 
     useEffect(() => {
         props.setData(linkData);
