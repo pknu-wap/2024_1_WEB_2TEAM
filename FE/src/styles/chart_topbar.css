@@ -60,6 +60,7 @@
     flex-direction: row;
     font-size: 17px;
     color: #888888;
+    cursor: default;
 }
 
 .topbar-path-link {
@@ -67,10 +68,6 @@
     font-size: 17px;
     color: #000000;
     text-decoration: none;
-}
-
-.topbar-path-link:hover {
-    color: tomato;
 }
 
 #topbar-path {
