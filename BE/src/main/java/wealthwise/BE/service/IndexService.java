@@ -1,6 +1,6 @@
 package wealthwise.BE.service;
 
-import wealthwise.BE.domain.entity.Index; // 올바른 경로로 수정
+import wealthwise.BE.domain.entity.Index;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wealthwise.BE.repository.IndexRepository;
@@ -15,6 +15,10 @@ public class IndexService {
 
     public List<Index> getIndexesByCategory(String category) {
         return indexRepository.findByMajorCategory(category);
+    }
+
+    public List<Index> getIndexesByCategoryAndIdRange(String category, Integer startId, Integer endId) {
+        return indexRepository.findByMajorCategoryAndIndexIdBetween(category, startId, endId);
     }
 
     public String getCategoryById(int id) {
@@ -37,8 +41,6 @@ public class IndexService {
                 return "china";
             case 9:
                 return "eurozone";
-
-            // 필요한 경우 추가 카테고리
             default:
                 throw new IllegalArgumentException("Invalid id: " + id);
         }

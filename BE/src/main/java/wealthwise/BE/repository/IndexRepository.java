@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IndexRepository extends JpaRepository<Index, Integer> {
     List<Index> findByMajorCategory(String majorCategory);
-
+    List<Index> findByMajorCategoryAndIndexIdBetween(String majorCategory, Integer startId, Integer endId);
 }

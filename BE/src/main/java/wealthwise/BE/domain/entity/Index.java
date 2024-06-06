@@ -6,56 +6,56 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "index")
+@Table(name = "index_table")
 public class Index {
 
     @Id
     @Column(name = "index_id")
-    private Integer index_id;
+    private Integer indexId;
 
     @Column(name = "major_category")
-    private String major_category;
+    private String majorCategory;
 
     @Column(name = "medium_category")
-    private String medium_category;
+    private String mediumCategory;
 
     @Column(name = "minor_category")
-    private String minor_category;
+    private String minorCategory;
 
     @Column(name = "link")
     private String link;
 
     // Getters and Setters
-    public Integer getIndex_id() {
-        return index_id;
+    public Integer getIndexId() {
+        return indexId;
     }
 
-    public void setIndex_id(Integer index_id) {
-        this.index_id = index_id;
+    public void setIndexId(Integer indexId) {
+        this.indexId = indexId;
     }
 
-    public String getMajor_category() {
-        return major_category;
+    public String getMajorCategory() {
+        return majorCategory;
     }
 
-    public void setMajor_category(String major_category) {
-        this.major_category = major_category;
+    public void setMajorCategory(String majorCategory) {
+        this.majorCategory = majorCategory;
     }
 
-    public String getMedium_category() {
-        return medium_category;
+    public String getMediumCategory() {
+        return mediumCategory;
     }
 
-    public void setMedium_category(String medium_category) {
-        this.medium_category = medium_category;
+    public void setMediumCategory(String mediumCategory) {
+        this.mediumCategory = mediumCategory;
     }
 
-    public String getMinor_category() {
-        return minor_category;
+    public String getMinorCategory() {
+        return minorCategory;
     }
 
-    public void setMinor_category(String minor_category) {
-        this.minor_category = minor_category;
+    public void setMinorCategory(String minorCategory) {
+        this.minorCategory = minorCategory;
     }
 
     public String getLink() {

@@ -20,6 +20,6 @@ public class IndexController {
     @GetMapping("/{id}")
     public List<Index> getIndex(@PathVariable int id) {
         String category = indexService.getCategoryById(id);
-        return indexService.getIndexesByCategory(category);
+        return indexService.getIndexesByCategoryAndIdRange(category, 1, 13);
     }
 }
