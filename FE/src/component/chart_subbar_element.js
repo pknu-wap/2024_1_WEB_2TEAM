@@ -4,8 +4,6 @@ import '../styles/chart_subbar_element.css';
 function ChartSsubbarElement(props) {
 
     let { id } = props;
-    let { mojor_cg } = props;
-    let { medium_cg } = props;
     let { minor_cg } = props;
 
     const checkOnlyOne = (checkThis) => {
@@ -17,6 +15,9 @@ function ChartSsubbarElement(props) {
         }
 
         props.setData(props.link);
+        props.set_major_cg(props.major_cg);
+        props.set_medium_cg(props.medium_cg);
+        props.set_minor_cg(props.minor_cg);
     }
 
     return (

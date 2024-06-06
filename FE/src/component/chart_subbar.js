@@ -5,6 +5,9 @@ import '../styles/chart_subbar.css';
 
 function SubBar(props) {
     const [linkData, setData] = useState("initial data");
+    const [major_cg, set_major_cg] = useState("initial data");
+    const [medium_cg, set_medium_cg] = useState("initial data");
+    const [minor_cg, set_minor_cg] = useState("initial data");
 
     function loadIndexs() {
         const data = getChartData();
@@ -13,11 +16,15 @@ function SubBar(props) {
         return data.map((entity) => (
             <ChartSubbarElement
                 id={entity.id}
-                mojor_cg={entity.major_category}
+                major_cg={entity.major_category}
                 medium_cg={entity.medium_category}
                 minor_cg={entity.minor_category}
                 link={entity.link}
-                setData={setData} />
+
+                setData={setData}
+                set_major_cg={set_major_cg}
+                set_medium_cg={set_medium_cg}
+                set_minor_cg={set_minor_cg} />
         ));
     }
 
@@ -142,9 +149,16 @@ function SubBar(props) {
             { "id": 117, "major_category": "eurozone", "medium_category": "corporation", "minor_category": "manufacturing_pmi", "link": "https://tradingeconomics.com/embed/?s=euroareamanpmi&v=202405210000&h=400&w=800&ref=" }];
     }
 
+    function setDatas() {
+        props.setData(linkData);
+        props.set_major_cg(major_cg);
+        props.set_medium_cg(medium_cg);
+        props.set_minor_cg(minor_cg);
+    }
+
     return (
         <div id="subbar">
-            <div id="subbar-classification" onChange={() => props.setData(linkData)}>
+            <div id="subbar-classification" onChange={setDatas()}>
                 {loadIndexs()}
             </div>
         </div>
