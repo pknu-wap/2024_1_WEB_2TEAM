@@ -36,6 +36,7 @@ public class SecurityConfig {
                         .requestMatchers("/boards/**").permitAll()
                         .requestMatchers("/comments/**").authenticated() // /comments/** 엔드포인트는 인증 필요
                         .requestMatchers("/index/**").permitAll() // /index 엔드포인트에 대한 모든 사용자의 접근 허용
+                        .requestMatchers("/bookmarks/**").authenticated() // /bookmarks/** 엔드포인트는 인증 필요
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

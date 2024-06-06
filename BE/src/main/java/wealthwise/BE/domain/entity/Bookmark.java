@@ -24,4 +24,13 @@ public class Bookmark {
     @ManyToOne
     @JoinColumn(name = "index_id", nullable = false)
     private Index index;
+
+    // Setter methods
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setIndex(Index index) {
+        this.index = index;
+    }
 }
