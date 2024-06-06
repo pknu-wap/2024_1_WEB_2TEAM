@@ -1,6 +1,5 @@
 import { useState } from "react";
 import NavBar from "../component/NavBar";
-import TradingViewWidget from "../component/chart_graph";
 import SubBar from "../component/chart_subbar";
 import TopBar from "../component/chart_topbar";
 import Graph from "../component/graph";
