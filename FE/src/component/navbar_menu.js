@@ -2,11 +2,12 @@ import React from "react";
 import MenuLinkButton from "./navbar_menu-link";
 import '../styles/navbar_menu.css'
 
-function NavMenu() {
+function NavMenu(props) {
+
     return (
         <main id="menu">
             <div id="menu-box">
-                <div id="menu-links">
+                <div id="menu-links" onClick={() => props.setView(false)}>
                     <MenuLinkButton title={"주식"} sub1={"국가별"} sub2={"미국 지표"} sub3={"MSCI"} />
                     <MenuLinkButton title={"채권"} sub1={"10년 채권"} sub2={"미국 채권 지표"} sub3={"기타 지표"} sub4={""} />
                     <MenuLinkButton title={"암호화폐"} sub1={""} sub2={""} sub3={""} sub4={""} />

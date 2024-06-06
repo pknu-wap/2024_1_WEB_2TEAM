@@ -30,7 +30,7 @@ function NavBar(props) {
                     <Link to={link2} className="nav-link">{linkName2}</Link>
                 </div>
             </div>
-            {view && <NavMenu />}
+            {view && <NavMenu setView={setView} />}
         </div>
     );
 }

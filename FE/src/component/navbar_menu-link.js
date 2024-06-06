@@ -11,7 +11,8 @@ function MenuLinkButton(probs) {
 
     return (
         <div id="nav-menu-button">
-            <Link to='/' className="nav-menu-title">{title}</Link>
+            <input type="button" className="nav-menu-checkbox" name="major-button" />
+            <div className="nav-menu-title">{title}</div>
             <div id="nav-menu-subs">
                 <div className="nav-menu-sublink">{sub1}</div>
                 <div className="nav-menu-sublink">{sub2}</div>
