@@ -23,11 +23,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/create_account" element={<CreateAccountPage />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail/:boardId" element={<DetailPage />} /> {/* 수정된 부분 */}
         <Route path="/profile" element={<ProfilePage />} />
-
-        <Route path="/test" element={< NavMenu />} />
-
+        <Route path="/test" element={<NavMenu />} />
       </Routes>
     </div>
   );

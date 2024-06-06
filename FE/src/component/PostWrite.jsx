@@ -6,7 +6,7 @@ import '../styles/Board.css';
 
 function PostWrite() {
     const [title, setTitle] = useState('');
-    const [body, setBody] = useState(''); // 'content' 대신 'body'로 변경
+    const [body, setBody] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
