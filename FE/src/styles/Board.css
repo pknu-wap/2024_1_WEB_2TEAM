@@ -12,56 +12,10 @@ main {
 }
 
 .board {
-    position: relative;
-    top: 20px;
-    width: 100%;
-}
-
-.board_write_back {
-    min-height: calc(100vh - 57px);
-    background-color: #ffffff;
-}
-
-.board_write {
     position: absolute;
-    margin-left: auto;
-    left: 0;
-    right: 0;
-    margin-right: auto;
-    width: 94%;
-    height: calc(100% - 57px - 10px);
-}
-
-.post_write_title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 120px;
-}
-
-.post_write_contour {
-    position: relative;
-    background-color: lightgray;
-    height: 1px;
-    width: 100%;
-    margin: 10px 0px;
-}
-
-.post_write_submit_button {
-    float: right;
-    font-size: large;
-    font-family: "KCC-Hanbit";
-    width: 100px;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: #e8e8e8;
-}
-
-.board_write textarea:focus {
-    outline: none;
+    top: 100px;
+    width: 1000px;
+    left: calc(50% - 500px);
 }
 
 .board_header {
@@ -77,7 +31,7 @@ main {
 }
 
 .board_table {
-    width: 100%;
+    width:1000px;
 }
 
 .board_page_link {
@@ -94,23 +48,4 @@ main {
 
 .bold_link {
     font-weight: 700;
-}
-
-.post_write_title_input {
-    font-size: 32pt;
-    border: none;
-    resize: none;
-    height: 40pt;
-    width: calc(100% - 200px);
-    font-family: "KCC-Hanbit";
-}
-
-.post_write_content_input {
-    margin-top: 30px;
-    font-size: 15pt;
-    border: none;
-    resize: none;
-    height: 450pt;
-    width: 100%;
-    font-family: "KCC-Hanbit";
 }

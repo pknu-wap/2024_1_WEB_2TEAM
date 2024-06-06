@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom"
 import '../styles/MainPage.css'
-import '../styles/Board.css'
+import '../styles/BoardWritePage.css'
 import PostWrite from '../component/PostWrite.jsx'
 import NavBar from "../component/NavBar.js";
 

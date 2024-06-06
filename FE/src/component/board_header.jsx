@@ -6,7 +6,7 @@ function BoardHeader() {
     return (
         <div class="board_header">
             <div class="board_address">home / 게시판</div>
-            <Link to="/index" class="board_new_post_button">글쓰기</Link>
+            <Link to="/post" class="board_new_post_button">글쓰기</Link>
         </div>
     );
 }
