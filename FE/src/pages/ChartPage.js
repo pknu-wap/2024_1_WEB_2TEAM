@@ -6,7 +6,7 @@ import Graph from "../component/graph";
 import "../styles/ChartPage.css"
 
 function IndexPage() {
-    const [linkData, setLinkData] = useState("initial data");
+    const [linkData, setLinkData] = useState("");
     const [major_cg, setMajorCg] = useState("initial data");
     const [medium_cg, setMediumCg] = useState("initial data");
     const [minor_cg, setMinorCg] = useState("initial data");
