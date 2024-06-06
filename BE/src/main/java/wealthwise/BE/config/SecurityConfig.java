@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/login", "/users/signup").permitAll()
                         .requestMatchers("/boards/**").permitAll()
                         .requestMatchers("/comments/**").authenticated() // /comments/** 엔드포인트는 인증 필요
+                        .requestMatchers("/index").permitAll() // /index 엔드포인트에 대한 모든 사용자의 접근 허용
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
