@@ -1,1 +1,5 @@
 /FE/node_modules
+/FE/src/stories
+/FE/.storybook
+*.stories.jsx
+*storybook.log

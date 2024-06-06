@@ -12,7 +12,7 @@ function NavBar(props) {
     let { link2 } = props;
 
     return (
-        <main id="nav">
+        <div id="nav">
             <div id="nav-bar">
                 <div id="nav-left">
                     <div id="nav-toggle">
@@ -31,7 +31,7 @@ function NavBar(props) {
                 </div>
             </div>
             {view && <NavMenu />}
-        </main>
+        </div>
     );
 }
 

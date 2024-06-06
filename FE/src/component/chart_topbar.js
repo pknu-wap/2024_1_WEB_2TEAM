@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../styles/chart_topbar.css';
 
-function TopBar() {
+function TopBar(props) {
+    let { major_cg } = props;
+    let { medium_cg } = props;
+    let { minor_cg } = props;
+
     return (
         <div id="topbar">
             <div id="topbar-contents">
@@ -11,11 +15,11 @@ function TopBar() {
                         <img id="topbar-homeimg" src={process.env.PUBLIC_URL + '/home.png'} />
                     </Link>
                     <text className="topbar-path-txt">&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-                    <Link to='/' className="topbar-path-link">환율</Link>
+                    <div className="topbar-path-link">{major_cg}</div>
                     <text className="topbar-path-txt">&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-                    <Link to='/' className="topbar-path-link">환율 지표</Link>
+                    <div className="topbar-path-link">{medium_cg}</div>
                     <text className="topbar-path-txt">&nbsp;&nbsp;/&nbsp;&nbsp;</text>
-                    <Link to='/' className="topbar-path-link">달러/엔화</Link>
+                    <div className="topbar-path-link">{minor_cg}</div>
                 </div>
                 <div id="topbar-bookmark">
                     <input type="checkbox" id="topbar-checkbox" />
