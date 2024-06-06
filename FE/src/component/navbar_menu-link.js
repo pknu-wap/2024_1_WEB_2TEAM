@@ -13,10 +13,10 @@ function MenuLinkButton(probs) {
         <div id="nav-menu-button">
             <Link to='/' className="nav-menu-title">{title}</Link>
             <div id="nav-menu-subs">
-                <Link to='/' className="nav-menu-sublink">{sub1}</Link>
-                <Link to='/' className="nav-menu-sublink">{sub2}</Link>
-                <Link to='/' className="nav-menu-sublink">{sub3}</Link>
-                <Link to='/' className="nav-menu-sublink">{sub4}</Link>
+                <div className="nav-menu-sublink">{sub1}</div>
+                <div className="nav-menu-sublink">{sub2}</div>
+                <div className="nav-menu-sublink">{sub3}</div>
+                <div className="nav-menu-sublink">{sub4}</div>
             </div>
         </div>
     );

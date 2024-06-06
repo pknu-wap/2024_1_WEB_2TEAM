@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import ChartSubbarElement from "./chart_subbar_element";
 import '../styles/chart_subbar.css';
 
 function SubBar(props) {
+    const [linkData, setData] = useState("initial data");
 
     function loadIndexs() {
         const data = getChartData();
@@ -14,7 +16,8 @@ function SubBar(props) {
                 mojor_cg={entity.major_category}
                 medium_cg={entity.medium_category}
                 minor_cg={entity.minor_category}
-                link={props.link} />
+                link={entity.link}
+                setData={setData} />
         ));
     }
 
@@ -141,9 +144,8 @@ function SubBar(props) {
 
     return (
         <div id="subbar">
-            <div id="subbar-classification">
+            <div id="subbar-classification" onChange={() => props.setData(linkData)}>
                 {loadIndexs()}
-                <button onClick={() => props.setData("https://map.kakao.com/")}></button>
             </div>
         </div>
     );

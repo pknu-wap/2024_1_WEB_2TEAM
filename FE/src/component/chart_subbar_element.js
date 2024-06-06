@@ -3,6 +3,11 @@ import '../styles/chart_subbar_element.css';
 
 function ChartSsubbarElement(props) {
 
+    let { id } = props;
+    let { mojor_cg } = props;
+    let { medium_cg } = props;
+    let { minor_cg } = props;
+
     const checkOnlyOne = (checkThis) => {
         const checkboxes = document.getElementsByName("chart")
         for (let i = 0; i < checkboxes.length; i++) {
@@ -10,23 +15,22 @@ function ChartSsubbarElement(props) {
                 checkboxes[i].checked = false
             }
         }
-    }
 
-    let { id } = props;
-    let { mojor } = props;
-    let { medium } = props;
-    let { name } = props;
-    let { link } = props;
+        props.setData(props.link);
+    }
 
     return (
         <div className="chart-button">
-            <input
-                type="checkBox"
-                name="chart"
-                value={id}
-                className="chartCheckbox"
-                onChange={(e) => checkOnlyOne(e.target)} />
-            <div className="sub-button-name" id="small">{name}</div>
+
+            <div id="subbar_checkbox">
+                <input
+                    type="checkBox"
+                    name="chart"
+                    value={id}
+                    className="chartCheckbox"
+                    onChange={(e) => checkOnlyOne(e.target)} />
+                <div id="chart_name">{minor_cg}</div>
+            </div>
         </div>
     );
 }

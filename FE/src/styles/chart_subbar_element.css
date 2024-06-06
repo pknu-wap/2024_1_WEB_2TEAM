@@ -13,35 +13,33 @@
     color: tomato;
 }
 
-#big {
-    height: 55px;
-    font-family: "KCC-Hanbit";
-    font-size: 38px;
-}
-
-#middle {
-    height: 44px;
-    font-family: "KCC-Hanbit";
-    font-size: 27px;
-}
-
-#small {
+#subbar_checkbox {
     height: 32px;
     font-family: "KCC-Hanbit";
     font-size: 15px;
 }
 
+#subbar_checkbox:hover {
+    color: tomato;
+}
+
+#chart_name {
+    position: relative;
+    bottom: 20px;
+}
+
 .chartCheckbox {
+    opacity: 0;
+    position: relative;
     display: block;
     cursor: pointer;
-    position: absolute;
     width: 300px;
     height: 20px;
-    z-index: 2;
+    z-index: 3;
     -webkit-touch-callout: none;
 }
 
-.chartCheckbox:checked~.sub-button-name {
+.chartCheckbox:checked~#chart_name {
     color: dimgrey;
     text-decoration: underline;
 }
