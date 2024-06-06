@@ -19,10 +19,10 @@ function SubBar(props) {
 
         return data.map((entity) => (
             <ChartSubbarElement
-                id={entity.id}
-                major_cg={entity.major_category}
-                medium_cg={entity.medium_category}
-                minor_cg={entity.minor_category}
+                id={entity.indexId}
+                major_cg={entity.majorCategory}
+                medium_cg={entity.mediumCategory}
+                minor_cg={entity.minorCategory}
                 link={entity.link}
 
                 setData={setData}
