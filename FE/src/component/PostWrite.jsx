@@ -6,7 +6,7 @@ import '../styles/Board.css';
 
 function PostWrite() {
     const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [body, setBody] = useState(''); // 'content' 대신 'body'로 변경
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -22,7 +22,7 @@ function PostWrite() {
             console.log("Token:", token); // 토큰 로그 추가
             const response = await axios.post("http://localhost:8080/boards/write", {
                 title,
-                content
+                body // 'content' 대신 'body' 사용
             }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -56,8 +56,8 @@ function PostWrite() {
                     <textarea 
                         placeholder='내용을 입력해주세요' 
                         className="post_write_content_input"
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
+                        value={body} // 'content' 대신 'body' 사용
+                        onChange={(e) => setBody(e.target.value)} // 'content' 대신 'body' 사용
                         required>
                     </textarea> 
                 </div>
