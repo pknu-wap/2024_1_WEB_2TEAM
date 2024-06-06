@@ -59,10 +59,11 @@ public class BoardController {
     }
 
     @PostMapping("/write")
-    public Long createBoard(@RequestBody BoardCreateRequest req, Authentication auth) throws IOException {
+    public Long createBoard(@RequestBody BoardCreateRequest req, Authentication auth) {
         if (auth == null || auth.getName() == null) {
             throw new IllegalStateException("로그인이 필요합니다.");
         }
+        System.out.println("Authenticated user: " + auth.getName()); // 로그 추가
         return boardService.writeBoard(req, auth.getName());
     }
 
