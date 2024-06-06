@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../styles/form.css';
-import { getToken } from "../component/Auth"; // token_key를 가져오는 함수를 불러옵니다.
+import { getToken, removeToken } from "../component/Auth"; // token_key를 가져오는 함수를 불러옵니다.
 
 function ProfilePage() {
     const navigate = useNavigate();
@@ -10,6 +10,7 @@ function ProfilePage() {
     const [loginId, setLoginId] = useState('');
 
     const signOut = () => {
+        removeToken();
         const token = getToken();
         if (!token) {
             console.log("No token found, redirecting to home.");
