@@ -29,8 +29,8 @@ public class Board extends BaseEntity {
 
     @OneToMany(mappedBy = "board", orphanRemoval = true)  // 일대다(1:N) 관계를 나타내는 애너테이션
     private List<Comment> comments; // 게시글에 달린 댓글 리스트를 나타내는 필드
-    private Integer commentCnt;     // 게시글에 달린 댓글 수를 나타내는 필드
-
+    @Builder.Default
+    private Integer commentCnt = 0;  // 댓글 수를 기본값 0으로 초기화
 
     // 게시글 정보를 업데이트하는 메서드
     public void update(BoardDto dto) {

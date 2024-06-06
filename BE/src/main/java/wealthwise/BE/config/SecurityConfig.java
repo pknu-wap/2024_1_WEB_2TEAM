@@ -32,6 +32,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/users/login", "/users/signup").permitAll()
+                        .requestMatchers("/boards/**").permitAll()
+                        .requestMatchers("/comments/**").authenticated() // /comments/** 엔드포인트는 인증 필요
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

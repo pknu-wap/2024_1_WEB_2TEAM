@@ -6,9 +6,9 @@ import Detail from "../component/Detail";
 import NavBar from "../component/NavBar";
 
 function DetailPage() {
-    const { boardId } = useParams(); // URL 파라미터에서 boardId 가져오기
+    const { boardId } = useParams();
     const [title, setTitle] = useState('');
-    const [writer, setWriter] = useState('');
+    const [userNickname, setUserNickname] = useState(''); // writer 대신 userNickname 사용
     const [date, setDate] = useState('');
     const [context, setContext] = useState('');
     const [comments, setComments] = useState([]);
@@ -19,7 +19,7 @@ function DetailPage() {
             const data = response.data;
 
             setTitle(data.title);
-            setWriter(data.userNickname);
+            setUserNickname(data.userNickname); // writer 대신 userNickname 사용
             setDate(data.createdAt);
             setContext(data.body);
             setComments(data.comments || []);
@@ -35,7 +35,15 @@ function DetailPage() {
     return (
         <main>
             <NavBar linkName1={"지수"} linkName2={"로그인"} link1={'/index'} link2={'/login'} />
-            <Detail title={title} writer={writer} date={date} context={context} comments={comments} />
+            <Detail 
+                boardId={boardId} 
+                title={title} 
+                userNickname={userNickname} // writer 대신 userNickname 사용
+                date={date} 
+                context={context} 
+                comments={comments} 
+                refreshComments={getData} // getData 함수를 Detail 컴포넌트에 전달
+            />
         </main>
     );
 }

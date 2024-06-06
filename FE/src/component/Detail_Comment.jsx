@@ -1,20 +1,15 @@
 import React from 'react';
 import '../styles/Detail.css';
-import { Link } from "react-router-dom";
 
-function DetailComment(props) {
-    var writer = props.writer;
-    var date = props.date;
-    var context = props.context;
-
+function DetailComment({ userNickname, date, context }) { // 구조 분해 할당 사용
     return (
-        <div class="detail_page_comment_view">
-            <div class="detail_page_comment_title">
-                <p class="detail_page_comment_title_writer">{writer}</p>
-                <p class="detail_page_comment_title_date">{date}</p>
+        <div className="detail_page_comment_view"> {/* class를 className으로 수정 */}
+            <div className="detail_page_comment_title">
+                <p className="detail_page_comment_title_writer">{userNickname}</p>
+                <p className="detail_page_comment_title_date">{date}</p>
             </div>
-            <div class="detail_page_comment_contour"></div>
-            <div class="detail_page_comment_context">
+            <div className="detail_page_comment_contour"></div>
+            <div className="detail_page_comment_context">
                 <p>{context}</p>
             </div>
         </div>
