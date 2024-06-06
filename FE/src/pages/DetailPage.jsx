@@ -34,7 +34,7 @@ function DetailPage() {
 
     return (
         <main>
-            <NavBar linkName1={"지수"} link1={'/index'} />
+            <NavBar linkName1={"지수"} link1={'/main'} />
             <Detail
                 boardId={boardId}
                 title={title}

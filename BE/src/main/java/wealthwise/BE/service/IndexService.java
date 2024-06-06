@@ -1,8 +1,8 @@
 package wealthwise.BE.service;
 
-import wealthwise.BE.domain.entity.Index;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import wealthwise.BE.domain.entity.Index;
 import wealthwise.BE.repository.IndexRepository;
 
 import java.util.List;
@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class IndexService {
 
+    private final IndexRepository indexRepository;
+
     @Autowired
-    private IndexRepository indexRepository;
+    public IndexService(IndexRepository indexRepository) {
+        this.indexRepository = indexRepository;
+    }
 
     public List<Index> getIndexesByCategory(String category) {
         return indexRepository.findByMajorCategory(category);
