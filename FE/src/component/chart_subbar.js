@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { getToken } from "./Auth";
 import ChartSubbarElement from "./chart_subbar_element";
 import '../styles/chart_subbar.css';
 
@@ -11,6 +12,7 @@ function SubBar(props) {
     const [major_cg, set_major_cg] = useState("initial data");
     const [medium_cg, set_medium_cg] = useState("initial data");
     const [minor_cg, set_minor_cg] = useState("initial data");
+    const navigate = useNavigate();
 
     const [Indexdata, setIndexData] = useState([]);
 
@@ -38,10 +40,25 @@ function SubBar(props) {
 
     const getData = useCallback(async () => {
         try {
-            console.log(`Fetching data for indexId: ${indexId}`);
-            const response = await axios.get(`http://localhost:8080/index/${indexId}`);
-            console.log("Fetched data:", response.data);
-            setIndexData(response.data);
+            if (indexId != 10) {
+                const response = await axios.get(`http://localhost:8080/index/${indexId}`);
+                setIndexData(response.data);
+            } else {
+                const token = getToken();
+                if (!token) {
+                    console.log("No token found, please log in.");
+                    navigate("/login");
+                    return;
+                }
+
+                const response = await axios.get(`http://localhost:8080/index/${indexId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                setIndexData(response.data);
+            }
         } catch (error) {
             console.error("Failed to fetch data:", error);
         }
@@ -70,3 +87,5 @@ function SubBar(props) {
 }
 
 export default SubBar;
+
+/*  */
