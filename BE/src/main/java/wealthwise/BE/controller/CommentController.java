@@ -26,6 +26,9 @@ public class CommentController {
     public Long addComment(@PathVariable Long boardId,
                            @RequestBody CommentCreateRequest req,
                            Authentication auth) {
+        if (auth == null) {
+            throw new RuntimeException("로그인이 필요합니다.");
+        }
         return commentService.writeComment(boardId, req, auth.getName());
     }
 
@@ -41,6 +44,9 @@ public class CommentController {
     public Long editComment(@PathVariable Long commentId,
                             @RequestBody CommentCreateRequest req,
                             Authentication auth) {
+        if (auth == null) {
+            throw new RuntimeException("로그인이 필요합니다.");
+        }
         Long boardId = commentService.editComment(commentId, req.getBody(), auth.getName());
         return boardId;
     }
@@ -54,6 +60,9 @@ public class CommentController {
      */
     @DeleteMapping("/{commentId}")
     public Long deleteComment(@PathVariable Long commentId, Authentication auth) {
+        if (auth == null) {
+            throw new RuntimeException("로그인이 필요합니다.");
+        }
         Long boardId = commentService.deleteComment(commentId, auth.getName());
         return boardId;
     }

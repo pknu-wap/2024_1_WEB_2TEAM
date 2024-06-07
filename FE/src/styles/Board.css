@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "KCC-Hanbit";
+    src: url("../assets/KCC-Hanbit.ttf");
+}
+
+main {
+    min-height: 100vh;
+}
+
+.post_write_back {
+    background-color: lightgray;
+}
+
+.board {
+    position: absolute;
+    top: 100px;
+    width: 1000px;
+    left: calc(50% - 500px);
+}
+
+.board_header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+
+.board_new_post_button {
+    font-family: "KCC-Hanbit";
+    text-decoration: none;
+    color: black;
+}
+
+.board_table {
+    width:1000px;
+}
+
+.board_page_link {
+    text-decoration: none;
+    color: black;
+    padding-left: 4px;
+}
+
+.board_page {
+    text-align: center;
+    position: relative;
+    top: 10px;
+}
+
+.bold_link {
+    font-weight: 700;
+}
