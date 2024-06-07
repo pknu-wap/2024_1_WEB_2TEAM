@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "KCC-Hanbit";
+    src: url("../assets/KCC-Hanbit.ttf");
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 364px;
+    height: 448px;
+    background: #FFFFFF;
+    border: 0.8px solid #000000;
+    border-radius: 3px;
+}
+
+#form-go_back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#form-go_back-img {
+    width: 30px;
+    height: 30px;
+}
+
+#form-title {
+    margin-top: 60px;
+    width: 364px;
+    text-align: center;
+    font-family: "KCC-Hanbit";
+    font-size: 40px;
+}
+
+.form-input {
+    width: 290px;
+    height: 35px;
+    border: 0.8px solid #d9d9d9;
+    border-radius: 3px;
+    font-family: "KCC-Hanbit";
+    font-size: 14px;
+}
+
+#login-input_box {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#create_account-input_box {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#form-button {
+    margin-top: 10px;
+    cursor: pointer;
+
+    width: 296px;
+    height: 35px;
+    background-color: #d9d9d9;
+    border: 0.8px solid #d9d9d9;
+    border-radius: 3px;
+
+    font-family: "KCC-Hanbit";
+    font-size: 18px;
+}
+
+#form-button:hover {
+    color: tomato;
+}
+
+#form-other_link {
+    font-family: "KCC-Hanbit";
+    margin-top: 20px;
+    color: #000000;
+    text-decoration-line: none;
+}
+
+#form-other_link:hover {
+    color: tomato;
+}
+
+.form-text {
+    width: 290px;
+    height: 35px;
+    font-family: "KCC-Hanbit";
+    font-size: 18px;
+    border-bottom: 0.8px solid #d9d9d9;
+}

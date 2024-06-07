@@ -1,0 +1,1 @@
+import '/Users/mac/Documents/GitHub/2024_1_WEB_2TEAM/FE/node_modules/@storybook/addon-essentials/dist/backgrounds/manager.js';

@@ -5,42 +5,45 @@ import lombok.Data;
 import wealthwise.BE.domain.entity.Board;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
-
 public class BoardDto {
-    // 게시글의 고유 식별자
     private Long id;
-
-    // 게시글을 작성한 사용자의 로그인 ID
     private String userLoginId;
-
-    // 게시글을 작성한 사용자의 닉네임
     private String userNickname;
-
-    // 게시글 제목
     private String title;
-
-    // 게시글 내용
     private String body;
-
-    // 게시글 작성 시간
     private LocalDateTime createdAt;
-
-    // 게시글 마지막 수정된 시간
     private LocalDateTime lastModifiedAt;
+    private Integer commentCnt;
+    private List<CommentDto> comments;
 
-    //  Board 객체 BoardDto 변환
     public static BoardDto of(Board board) {
         return BoardDto.builder()
-                .id(board.getId()) //게시글 고유 식별자
-                .userLoginId(board.getUser().getLoginId()) //게시글 작성자 로그인 ID
-                .userNickname(board.getUser().getNickname()) //게시글 작성자 닉네임
-                .title(board.getTitle()) //제목
-                .body(board.getBody()) //내용
-                .createdAt(board.getCreatedAt()) //작성 시간
-                .lastModifiedAt(board.getLastModifiedAt()) //마지막 수정된 시간
+                .id(board.getId())
+                .userLoginId(board.getUser().getLoginId())
+                .userNickname(board.getUser().getNickname())
+                .title(board.getTitle())
+                .body(board.getBody())
+                .createdAt(board.getCreatedAt())
+                .lastModifiedAt(board.getLastModifiedAt())
+                .commentCnt(board.getCommentCnt())
+                .build();
+    }
+
+    public static BoardDto of(Board board, List<CommentDto> comments) {
+        return BoardDto.builder()
+                .id(board.getId())
+                .userLoginId(board.getUser().getLoginId())
+                .userNickname(board.getUser().getNickname())
+                .title(board.getTitle())
+                .body(board.getBody())
+                .createdAt(board.getCreatedAt())
+                .lastModifiedAt(board.getLastModifiedAt())
+                .commentCnt(board.getCommentCnt())
+                .comments(comments)
                 .build();
     }
 }

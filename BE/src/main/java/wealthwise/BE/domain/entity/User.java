@@ -16,7 +16,8 @@ import java.util.List;
 @Getter
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String loginId;     // 로그인할 때 사용하는 아이디
@@ -29,6 +30,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", orphanRemoval = true)
     private List<Comment> comments; // 댓글
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Bookmark> bookmarks;  // 북마크
 
     public void edit(String newPassword, String newNickname) {
         this.password = newPassword;

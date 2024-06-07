@@ -37,7 +37,7 @@ public class CommentService {
     }
 
     // 특정 게시글의 모든 댓글 조회
-    public List<Comment> findAll(Long boardId) {
+    public List<Comment> findAllByBoardId(Long boardId) {
         return commentRepository.findAllByBoardId(boardId);
     }
 
