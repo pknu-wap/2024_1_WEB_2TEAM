@@ -20,7 +20,6 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/board" element={<BoardPage />} />
         <Route path="/index/:indexId" element={<IndexPage />} />
-        <Route path="/main" element={<IndexPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/create_account" element={<CreateAccountPage />} />

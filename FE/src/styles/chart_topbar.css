@@ -24,6 +24,7 @@
 }
 
 #topbar-checkbox {
+    opacity: 0;
     z-index: 2;
 
     display: block;
