@@ -1,6 +1,6 @@
 .article_title {
     background-color: lightgray;
-    width:fit-content;
+    width: fit-content;
 }
 
 tr:hover {
@@ -8,17 +8,18 @@ tr:hover {
 }
 
 td:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
-th, td{
+th,
+td {
     padding: 9px 20px;
     margin: 0;
 }
 
 th {
-    border-top:2px solid black;
-    border-bottom:2px solid black;
+    border-top: 0.8px solid black;
+    border-bottom: 0.8px solid black;
 }
 
 td {
@@ -31,7 +32,7 @@ td:nth-child(2) {
 }
 
 th:nth-child(2) {
-    width:500px;
+    width: 500px;
 }
 
 td {
@@ -39,16 +40,16 @@ td {
 }
 
 .board_title {
-    font-size:12pt;
+    font-size: 12pt;
 }
 
 th::after {
-    position:relative;
-    content:"";
-    left:10px;
-    width:2px;
-    height:16px;
-    background-color: gray;
+    position: relative;
+    content: "";
+    left: 10px;
+    width: 2px;
+    height: 16px;
+    background-color: #888888;
 }
 
 td:nth-child(2) {
@@ -56,5 +57,5 @@ td:nth-child(2) {
 }
 
 .board_post {
-    font-size:11pt;
+    font-size: 11pt;
 }

@@ -1,29 +1,29 @@
 .board_write_back {
     position: absolute;
-    left:calc(50% - 500px);
+    left: calc(50% - 500px);
     min-height: calc(100vh - 57px);
-    width:1000px;
+    width: 1000px;
     background-color: white;
 }
 
 .board_write {
-    position:relative;
+    position: relative;
     left: 100px;
     top: 80px;
-    width:800px;
+    width: 800px;
     height: calc(100% - 57px - 10px);
 }
 
 .post_write_title {
-    height:100px;
+    height: 100px;
 }
 
 .post_write_contour {
     position: relative;
     background-color: lightgray;
     height: 1px;
-    left:32px;
-    width:730px;
+    left: 32px;
+    width: 730px;
     margin: 10px 0px;
 }
 

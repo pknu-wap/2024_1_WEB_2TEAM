@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/MainPage.css'
 import '../styles/BoardWritePage.css'
 import PostWrite from '../component/PostWrite.jsx'
-import NavBar from "../component/NavBar.js";
+import NavBar from "../component/NavBar";
 
 function PostPage() {
     return (

@@ -2,7 +2,6 @@ import React from "react";
 import NavBar from "../component/NavBar";
 import '../styles/BoardPage.css'
 import MainBoard from "../component/board_main";
-import SubBoard from "../component/board_sub";
 
 function BoardPage() {
     return (
