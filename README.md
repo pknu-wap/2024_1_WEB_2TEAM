@@ -1,5 +1,5 @@
 # 2024_1_WEB_2TEAM
-![header](https://capsule-render.vercel.app/api?type=waving&desc=2024-1%20Web%203%20team&text=WealthWise&animation=fadeIn&fontsize=30&color=gradient&height=200&fontColor=ffffff&fontAlign=70.3&fontAlignY=38&descAlign=87.2&descAlignY=15) 
+![header](https://capsule-render.vercel.app/api?type=waving&desc=2024-1%20Web%202%20team&text=WealthWise&animation=fadeIn&fontsize=30&color=gradient&height=200&fontColor=ffffff&fontAlign=70.3&fontAlignY=38&descAlign=87.2&descAlignY=15) 
 
 ### 각종 지수를 편하게 보기 위한 사이트 WealthWise입니다.
 
